@@ -33,7 +33,7 @@
 
                             </li>
                             <li>
-                                <a class="nav-link" href="info.do">소개</a>
+                                <a class="nav-link" href="info.do">Brand Story</a>
                             </li>
                             <li>
                                 <a href="designerPage.do">Designer</a>
