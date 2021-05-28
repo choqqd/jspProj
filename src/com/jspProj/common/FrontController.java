@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jspProj.designer.web.DesignerPage;
+import com.jspProj.member.web.MemberLogin;
 import com.jspProj.member.web.MemberLoginForm;
 
 
@@ -21,6 +22,7 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 	//요청 페이지 - > 실행컨트롤러
 		map.put("/index.do", new indexPage());
+		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/memberLoginForm.do", new MemberLoginForm());
 		map.put("/memberJoinForm.do", new MemberJoinForm());
 		
