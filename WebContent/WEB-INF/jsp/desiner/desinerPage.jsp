@@ -19,6 +19,19 @@
     	text-align: center;
     	list-style: none;
 	}
+	.de-allbox{
+		max-width: 1400px;
+   		margin: 0 auto;
+	}
+	.de-box{
+		display: flex;
+    	padding: 55px 76px;
+    	border: 1px solid #e1e1e1;
+    	box-sizing: border-box;
+    	border-radius: 8px;
+    	background-color: #fff;
+    	color: #8c8c8c;
+	}
 
 </style>
 </head>
@@ -26,11 +39,18 @@
 	<h2>Desiner List Info</h2>
 	<div style="width: 80%; margin: 0 auto;">
 		<ul class = "ds-ul">
-			<li>sdf</li>
-			<li>asdf</li>
-			<li>asdf</li>
-			<li>asdf</li>
+		<c:forEach items="${list }" var="vo">
+			<li>
+				<img src="${pageContext.request.contextPath }/bootstrap/img/${vo.dsImage }" />
+				<p>${vo.dsName }</p>
+			</li>
+		</c:forEach>
 		</ul>
+	</div>
+	<div class="de-allbox">
+		<div class="de-box">
+			asdfasdfasdfasdf
+		</div>
 	</div>
 </body>
 </html>
