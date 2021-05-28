@@ -10,7 +10,7 @@
                     <div class="col-sm-auto col-12">
                         <div class="social-icon text-center">
                             <ul>
-                                <li><a href="memberLoginForm.do">로그인</a></li>
+                                <li><a href="memberLoginPage.jsp">로그인</a></li>
                                 <li><a href="memberJoinForm.do">회원가입</a></li>
                             </ul>
                         </div>
