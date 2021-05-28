@@ -33,16 +33,16 @@
 
                             </li>
                             <li>
-                                <a class="nav-link" href="about.html">About</a>
+                                <a class="nav-link" href="info.do">소개</a>
                             </li>
                             <li>
-                                <a href="#">Pages</a>
+                                <a href="designerPage.do">Designer</a>
                             </li>
                             <li>
-                                <a href="#">Blog</a>
+                                <a href="interior.do">interior</a>
                             </li>
                             <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="cart.do">ShopingCart</a>
                             </li>
                         </ul>
                         <a href="#" class="nav-close"><i class="fal fa-times"></i></a>
