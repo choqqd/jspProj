@@ -2,5 +2,4 @@
     pageEncoding="UTF-8"%>
     
     
-<img src=upload/main.png style ="width:100%;">
-   
+<img src=upload/main.png style ="width:100%;" >
