@@ -9,8 +9,8 @@ public class DesignerPage implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return "desiner/desinerPage.tiles";
 	}
 
 }
