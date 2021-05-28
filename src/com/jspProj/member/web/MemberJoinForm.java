@@ -1,14 +1,15 @@
-package com.jspProj.common;
+package com.jspProj.member.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.jspProj.common.DbCommand;
 
 public class MemberJoinForm implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return null;
+		return "member/memberJoinPage.tiles";
 	}
 
 }

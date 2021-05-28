@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jspProj.designer.web.DesignerPage;
+import com.jspProj.member.web.MemberJoinForm;
 import com.jspProj.member.web.MemberLogin;
 import com.jspProj.member.web.MemberLoginForm;
 
