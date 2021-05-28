@@ -1,9 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	function desite(){
+		$('#showdox').load('.do')
+		
+	}
+</script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
@@ -40,7 +48,7 @@
 	<div style="width: 80%; margin: 0 auto;">
 		<ul class = "ds-ul">
 		<c:forEach items="${list }" var="vo">
-			<li>
+			<li onclick = "desite()">
 				<img src="${pageContext.request.contextPath }/bootstrap/img/${vo.dsImage }" />
 				<p>${vo.dsName }</p>
 			</li>
@@ -48,8 +56,8 @@
 		</ul>
 	</div>
 	<div class="de-allbox">
-		<div class="de-box">
-			asdfasdfasdfasdf
+		<div id = "showdox" class="de-box">
+			
 		</div>
 	</div>
 </body>
