@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jspProj.designer.web.DesignerPage;
+import com.jspProj.member.web.MemberJoin;
 import com.jspProj.member.web.MemberJoinForm;
 import com.jspProj.member.web.MemberLogin;
 import com.jspProj.member.web.MemberLoginForm;
@@ -26,6 +27,7 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/memberLoginForm.do", new MemberLoginForm());
 		map.put("/memberJoinForm.do", new MemberJoinForm());
+		map.put("/memberJoin.do", new MemberJoin());
 		
 	//디자이너 탭
 		map.put("/designerPage.do", new DesignerPage());

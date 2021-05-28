@@ -10,11 +10,11 @@ import com.jspProj.member.service.MemberService;
 import com.jspProj.member.vo.MemberVO;
 
 public class MemberServiceImpl extends DAO implements MemberService {
-	
+
 	PreparedStatement psmt;
 	ResultSet rs;
 	String sql;
-	
+
 	// Member 테이블에 id와 password가 일치하는지 체크하는 메소드
 	public MemberVO checkMember(MemberVO vo) {
 		sql = "select * from member where member_id = ? and member_pwd = ?";
@@ -24,7 +24,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 			psmt.setString(1, vo.getMemberId());
 			psmt.setString(2, vo.getMemberPwd());
 			rs = psmt.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				mvo = new MemberVO();
 				mvo.setMemberId(rs.getString("member_id"));
 				mvo.setMemberPwd(rs.getString("member_pwd"));
@@ -41,6 +41,7 @@ public class MemberServiceImpl extends DAO implements MemberService {
 		}
 		return mvo;
 	}
+
 	@Override
 	public List<MemberVO> selectMemberList() {
 		// TODO Auto-generated method stub
@@ -52,11 +53,33 @@ public class MemberServiceImpl extends DAO implements MemberService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	// 회원가입
 	@Override
 	public int insertMember(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return 0;
+		sql = "insert into member values(?,?,?,?,?,?,?)";
+		int insert = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getMemberId());
+			psmt.setString(2, vo.getMemberPwd());
+			psmt.setString(3, vo.getMemberName());
+			psmt.setString(4, vo.getMemberMail());
+			psmt.setString(5, vo.getMemberTel());
+			psmt.setString(6, vo.getMemberAddr());
+			psmt.setString(7, vo.getMemberReq());
+
+			insert = psmt.executeUpdate();
+			if (insert != 0) {
+				System.out.println(insert + "건 가입완료");
+			} else {
+				System.out.println("가입실패");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return insert;
 	}
 
 	@Override
