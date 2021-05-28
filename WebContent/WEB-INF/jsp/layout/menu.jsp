@@ -29,7 +29,7 @@
                     <div class="site-nav-menu">
                         <ul class="primary-menu">
                             <li class="current">
-                                <a href="index.html">Home</a>
+                                <a href="index.do">Home</a>
 
                             </li>
                             <li>
