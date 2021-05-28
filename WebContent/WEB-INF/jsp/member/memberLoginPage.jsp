@@ -7,6 +7,23 @@
 <title>Insert title here</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- 로그인 체크 및 submit -->
+<script>
+	function Check() {
+		if (frm.memberId.value == "") {
+			alert("아이디를 입력해주세요!");
+			frm.memberId.focus();
+			return false;
+		}
+		if (frm.memberPwd.value == "") {
+			alert("비밀번호를 입력해주세요!");
+			frm.memberPwd.focus();
+			return false;
+		}
+		frm.submit();
+	}
+</script>
 <style>
 #LoginTop>h2 {
 	display: inline-block;
@@ -19,11 +36,20 @@ table {
 
 button {
 	margin: 20px 0px;
+	border: 1px solid black;
+}
+
+td {
+	padding: 10px 0px;
+}
+
+input {
+	border: 1px solid black;
 }
 </style>
 </head>
 <body>
-<hr>
+	<hr>
 	<div align="center">
 
 		<div id="LoginTop">
@@ -33,13 +59,15 @@ button {
 			</h2>
 		</div>
 
-		<form action="memberLoginForm.do" method="post">
-			<table border="1">
+		<form id="frm" action="memberLoginForm.do" method="post">
+			<table>
 				<tr>
-					<td><input type="text" name="id" value="아이디를 입력하세요"></td>
+					<th>아이디</th>
+					<td><input type="text" name="id" id="memberId"></td>
 				</tr>
 				<tr>
-					<td><input type="password" name="pwd" value="********"></td>
+					<th>비밀번호</th>
+					<td><input type="password" name="pwd" id="memberPwd"></td>
 				</tr>
 			</table>
 			<button type="button" class="btn btn-outline-dark" onclick="Check()">로그인</button>
@@ -49,6 +77,6 @@ button {
 		</form>
 
 	</div>
-<hr>
+	<hr>
 </body>
 </html>

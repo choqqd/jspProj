@@ -15,6 +15,32 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	ResultSet rs;
 	String sql;
 	
+	// Member 테이블에 id와 password가 일치하는지 체크하는 메소드
+	public MemberVO checkMember(MemberVO vo) {
+		sql = "select * from member where member_id = ? and member_pwd = ?";
+		MemberVO mvo = null;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getMemberId());
+			psmt.setString(2, vo.getMemberPwd());
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				mvo = new MemberVO();
+				mvo.setMemberId(rs.getString("member_id"));
+				mvo.setMemberPwd(rs.getString("member_pwd"));
+				mvo.setMemberName(rs.getString("member_name"));
+				mvo.setMemberMail(rs.getString("member_mail"));
+				mvo.setMemberTel(rs.getString("member_tel"));
+				mvo.setMemberAddr(rs.getString("member_addr"));
+				mvo.setMemberReq(rs.getString("member_req"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return mvo;
+	}
 	@Override
 	public List<MemberVO> selectMemberList() {
 		// TODO Auto-generated method stub
