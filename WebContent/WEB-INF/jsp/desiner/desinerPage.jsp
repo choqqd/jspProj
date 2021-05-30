@@ -7,9 +7,9 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-	function desite(){
-		$('#showdox').load('.do')
-		
+	function desite(Name){
+		frm.DesinerName.value = Name;
+		$('#showdox').load('DesinerPage.do');
 	}
 </script>
 <meta charset="UTF-8">
@@ -45,10 +45,13 @@
 </head>
 <body>
 	<h2>Desiner List Info</h2>
+	<form id = "frm">
+		<input type="hidden" id ="DesinerName" name = "DesinerName" >
+	</form>
 	<div style="width: 80%; margin: 0 auto;">
 		<ul class = "ds-ul">
 		<c:forEach items="${list }" var="vo">
-			<li onclick = "desite()">
+			<li onclick = "desite(${vo.dsName })">
 				<img src="${pageContext.request.contextPath }/bootstrap/img/${vo.dsImage }" />
 				<p>${vo.dsName }</p>
 			</li>
