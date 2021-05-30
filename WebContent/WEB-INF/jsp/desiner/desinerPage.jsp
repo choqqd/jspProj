@@ -9,7 +9,8 @@
 <script>
 	function desite(Name){
 		frm.DesinerName.value = Name;
-		$('#showdox').load('DesinerPage.do');
+		$('#showdox').load('desinerPage.do');
+		frm.submit();
 	}
 </script>
 <meta charset="UTF-8">

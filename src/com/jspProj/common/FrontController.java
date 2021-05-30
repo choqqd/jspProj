@@ -31,6 +31,7 @@ public class FrontController extends HttpServlet {
 		
 	//디자이너 탭
 		map.put("/designerPage.do", new DesignerPage());
+		map.put("/desinerPage", new DesinerPage());
 	}
 	
 	@Override
