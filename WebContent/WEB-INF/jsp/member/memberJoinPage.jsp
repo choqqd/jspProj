@@ -4,6 +4,68 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 
+
+<script>
+	$(function() {
+		CKEDITOR
+				.replace(
+						'req',
+						{
+							filebrowserUploadUrl : '${pageContext.request.contextPath }/uploadImage',
+							height : '600px',
+							width : '800px'
+						});
+
+		$('#idCheck').click(function() {
+			if ($('#memberId').val() == "") {
+				alert('아이디를 입력해주세요.');
+				$('#memberId').focus();
+				return;
+			}
+			$.ajax({
+				url : 'idCheck',
+				data : {
+					id : $('#memberId').val()
+				},
+				type : 'post',
+				success : function(data) {
+					console.log(data);
+					if (data > 0) {
+						alert('아이디가 존재합니다. 다른 아이디를 입력하세요.');
+						$('#memberId').val("");
+						$('#memberId').focus();
+					} else {
+						alert('사용가능한 아이디입니다.');
+						$('#idCheck').val('checked');
+						$('#memberPwd').focus();
+					}
+
+				},
+				error : function(err) {
+					console.log(err);
+				}
+			});
+		});
+	})
+
+	function check() {
+		if (frm.memberId.value == "") {
+			alert("아이디를 입력하세요.")
+			frm.memberId.focus();
+			return false;
+		}
+		if (frm.idCheck.value == 'unChecked') {
+			alert("중복체크를 하세요.");
+			return false;
+		}
+		if (frm.memberPwd.value == "") {
+			alert("비밀번호를 입력하세요.")
+			frm.memberPwd.focus();
+			return false;
+		}
+		frm.submit();
+	}
+</script>
 <style>
 table {
 	margin: 20px 0px;
@@ -20,11 +82,11 @@ input {
 </style>
 
 <div id="wrap" align="center">
-	<form action="memberJoin.do" method="post">
+	<form id="frm" action="memberJoin.do" method="post">
 		<table>
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" name="idd" id="memberId">
+				<td><input type="text" name="id" id="memberId">
 					<button type="button" id="idCheck" value="unChecked"
 						class="btn btn-outline-dark">중복체크</button></td>
 			</tr>
@@ -62,34 +124,3 @@ input {
 </div>
 <hr>
 
-
-<script>
-	$(function() {
-		CKEDITOR
-				.replace(
-						'req',
-						{
-							filebrowserUploadUrl : '${pageContext.request.contextPath }/uploadImage',
-							height : '600px',
-							width : '800px'
-						});
-	})
-
-	function check() {
-		if (frm.memberId.value == "") {
-			alert("아이디를 입력하세요.")
-			frm.memberId.focus();
-			return false;
-		}
-		if (frm.idCheck.value == 'unChecked') {
-			alert("중복체크를 하세요.");
-			return false;
-		}
-		if (frm.memberPwd.value == "") {
-			alert("비밀번호를 입력하세요.")
-			frm.memberPwd.focus();
-			return false;
-		}
-		frm.submit();
-	}
-</script>

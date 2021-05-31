@@ -9,12 +9,13 @@ import com.jspProj.member.service.MemberService;
 import com.jspProj.member.serviceImpl.MemberServiceImpl;
 import com.jspProj.member.vo.MemberVO;
 
-public class MemberJoin implements DbCommand {
+public class MemberUpdate implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+
 		HttpSession session = request.getSession();
-		
+		String path = "";
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		String name = request.getParameter("name");
@@ -22,24 +23,38 @@ public class MemberJoin implements DbCommand {
 		String tel = request.getParameter("tel");
 		String addr = request.getParameter("addr");
 		String req = request.getParameter("req");
-		
-		MemberVO vo = new MemberVO();
-		vo.setMemberId(id);
-		vo.setMemberPwd(pwd);
-		vo.setMemberName(name);
-		vo.setMemberMail(mail);
-		vo.setMemberTel(tel);
-		vo.setMemberAddr(addr);
-		vo.setMemberReq(req);
-		
+		int n = 0;
 		MemberService service = new MemberServiceImpl();
-		service.insertMember(vo);
-		
-		request.setAttribute("id", id);
-		request.setAttribute("name", name);
-		session.setAttribute("id", id);
-		session.setAttribute("member", vo);
-		return "/index.do";
+		MemberVO vo = new MemberVO();
+
+		if (request.getMethod().equals("POST")) {
+			vo.setMemberId(id);
+			vo.setMemberAddr(addr);
+			vo.setMemberMail(mail);
+			vo.setMemberName(name);
+			vo.setMemberPwd(pwd);
+			vo.setMemberReq(req);
+			vo.setMemberTel(tel);
+			n = service.updateMember(vo);
+			System.out.println(id + pwd + name + mail + tel + addr + req);
+			if (n != 0) {
+				path = "/memberInfo.do";
+			} else {
+				path = "/index.do";
+			}
+		} else { // GET일때 delete
+			vo.setMemberId(id);
+			n = service.deleteMember(vo);
+			if (n != 0) {
+				path = "/memberLogin.do";
+				System.out.println("삭제 완료");
+				session.invalidate();
+			} else {
+				path = "/index.do";
+			}
+		}
+
+		return path;
 	}
 
 }
