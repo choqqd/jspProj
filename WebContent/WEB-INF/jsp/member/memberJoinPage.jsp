@@ -15,7 +15,13 @@
 							height : '600px',
 							width : '800px'
 						});
+		// 속성 탐색 선택자
+		// 입력이 변경되었을때 체크값을 unChecked로 변경
 
+		$('#memberId').change(function() {
+			$('#idCheck').val('unChecked');
+		});
+		
 		$('#idCheck').click(function() {
 			if ($('#memberId').val() == "") {
 				alert('아이디를 입력해주세요.');
@@ -46,6 +52,7 @@
 				}
 			});
 		});
+
 	})
 
 	function check() {
