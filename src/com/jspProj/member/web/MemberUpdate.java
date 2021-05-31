@@ -27,8 +27,6 @@ public class MemberUpdate implements DbCommand {
 		MemberService service = new MemberServiceImpl();
 		MemberVO vo = new MemberVO();
 
-		System.out.println(id + pwd + name + mail + tel + addr + req);
-
 		if (request.getMethod().equals("POST")) {
 			vo.setMemberId(id);
 			vo.setMemberAddr(addr);
@@ -38,6 +36,7 @@ public class MemberUpdate implements DbCommand {
 			vo.setMemberReq(req);
 			vo.setMemberTel(tel);
 			n = service.updateMember(vo);
+			System.out.println(id + pwd + name + mail + tel + addr + req);
 			if (n != 0) {
 				path = "/memberInfo.do";
 			} else {
@@ -47,7 +46,8 @@ public class MemberUpdate implements DbCommand {
 			vo.setMemberId(id);
 			n = service.deleteMember(vo);
 			if (n != 0) {
-				path = "/index.do";
+				path = "/memberLogin.do";
+				System.out.println("삭제 완료");
 				session.invalidate();
 			} else {
 				path = "/index.do";

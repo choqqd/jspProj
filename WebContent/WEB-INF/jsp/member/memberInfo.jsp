@@ -8,7 +8,9 @@
 }
 
 table {
-	margin: 20px 0px;
+	width: 80%;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
 td {
@@ -20,16 +22,25 @@ tr {
 }
 
 input {
-	border: 1px solid black;
-	width: 200px;
+	border-top: 1px solid gray;
+	border-bottom: 1px solid gray;
+	width: 100%;
+}
+
+button {
+	margin: 20px 40px;
+}
+
+#checkBtn {
+	margin: 20px auto;
 }
 </style>
 
 <div id="wrap" align="center">
-	<h2>${name }님의회원정보</h2>
-	<form id="frm" action="memberDel.do" method="post">
-		<input type="hidden" name = "id" id="id" value="${info.memberId }" >
-		<table border="1">
+	<h2>${info.memberName }님의회원정보</h2>
+	<form id="frm" action="memberUpdate.do" method="post">
+		<input type="hidden" name="id" id="id" value="${info.memberId }">
+		<table id="update">
 			<tr>
 				<th>아이디</th>
 				<td>${info.memberId }</td>
@@ -43,11 +54,13 @@ input {
 				<th>비밀번호 확인</th>
 				<td><input type="password" name="pwdCheck" id="pwdCheck"
 					value="********" onFocus="this.value='';return true;"
-					value="${info.memberName }"></td>
+					value="${info.memberName }">
+					<button value="unChecked" type="button" id="checkPwd"
+						class="btn btn-outline-dark">비밀번호 확인</button></td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><input type="text" name="name"
+				<td><input type="text" name="name" id="name"
 					onFocus="this.value='';return true;" value="${info.memberName }"></td>
 			</tr>
 			<tr>
@@ -66,16 +79,49 @@ input {
 					onFocus="this.value='';return true;" value="${info.memberAddr }"></td>
 			</tr>
 			<tr>
-				<th>요청사항</th>
-				<td><input type="text" name="req"
-					onFocus="this.value='';return true;" value="${info.memberReq }"></td>
+				<th colspan="2" style="text-align: center">요청사항</th>
+			</tr>
+			<tr>
+				<td colspan="2"><textarea
+						style="border: 1px solid black; text-align: center" name="req"
+						onFocus="this.value='';return true;">${info.memberReq }</textarea></td>
 			</tr>
 		</table>
-		<button type="submit" class="btn btn-outline-dark" >정보수정</button>
-		<button type="button" class="btn btn-outline-dark" onclick="location.href='memberUpdate.do?id=${info.memberId}'">회원탈퇴</button>
+		<button type="button" class="btn btn-outline-dark"
+			onclick="updateCheck()">정보수정</button>
+		<button type="button" class="btn btn-outline-dark"
+			onclick="location.href='memberUpdate.do?id=${info.memberId}'">회원탈퇴</button>
 		<button type="button" class="btn btn-outline-dark"
 			onclick="location.href='index.do'">첫 페이지</button>
 	</form>
 </div>
 
+<script>
+	$(document).ready(function() {
+		$('#checkPwd').click(function() {
+			if ($('#pwd').val() == $('#pwdCheck').val()) {
+				alert('일치합니다.');
+				$('#name').focus();
+				$('#checkPwd').val('checked');
+			} else {
+				alert('비밀번호가 일치하지 않습니다.');
+				$('#pwd').val('');
+				$('#checkPwd').val('');
+				$('#pwd').focus();
+			}
+		});
+	});
 
+	function updateCheck() {
+		if (frm.checkPwd.value == 'unChecked') {
+			alert("중복체크를 하세요.");
+			return false;
+		}
+		if (frm.pwd.value == "") {
+			alert("비밀번호를 입력하세요.")
+			frm.pwd.focus();
+			return false;
+		}
+		frm.submit();
+	}
+</script>
