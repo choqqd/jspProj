@@ -31,7 +31,7 @@
 			class="container-fluid container-1470 d-flex align-items-center justify-content-between">
 			<div class="header-left">
 				<div class="site-logo">
-					<a href="index.html"><img
+					<a href="index.do"><img
 						src="${pageContext.request.contextPath }/bootstrap/img/logo.png"
 						alt="Omnivus"></a>
 				</div>

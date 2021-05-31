@@ -33,6 +33,7 @@ body {
 	border: 1px solid #dde7e9;
 	margin: 100px auto 100px;
 	width: 20%;
+	height: auto;
 }
 
 a {
@@ -91,9 +92,11 @@ td {
 }
 
 input {
-	border: 1px solid black;
+	border: 1px solid #d0d3db;
+	border-radius: 15px;
 	width: 80%;
-	margin-left: 35px;
+	margin-left: 40px;
+	color: #000;
 }
 </style>
 </head>
@@ -115,7 +118,7 @@ input {
 					</tr>
 					<tr>
 						<td><input type="password" name="pwd" id="memberPwd"
-							value="비밀번호" onFocus="this.value='';return true;"></td>
+							value="비밀번호dddd" onFocus="this.value='';return true;"></td>
 					</tr>
 				</table>
 
