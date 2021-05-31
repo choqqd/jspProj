@@ -1,4 +1,4 @@
-package com.jspProj.designer.serviceImpl;
+package com.jspProj.bulletin.serviceImpl;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,32 +6,35 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.jspProj.bulletin.service.BulletinService;
+import com.jspProj.bulletin.vo.BulletinVO;
 import com.jspProj.common.DAO;
-import com.jspProj.designer.service.DesignerService;
-import com.jspProj.designer.vo.DesignerVO;
 
-public class DesignerServiceImpl extends DAO implements DesignerService{
+public class BulletinServiceImpl extends DAO implements BulletinService{
 	PreparedStatement psmt;
 	ResultSet rs;
-	String sql ="";
+	String sql = "";
+	
 	
 	@Override
-	public List<DesignerVO> DesignerSelectList() {
-		sql = "select * from designer";
-		List<DesignerVO> list = new ArrayList<>();
-		
+	public List<BulletinVO> bulletinSelectList(String name) {
+		sql = "select * from bulletin where ds_name =?";
+		List<BulletinVO> list = new ArrayList<>();
+		BulletinVO vo = null;
 		try {
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, name);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
-				DesignerVO vo = new DesignerVO();
-				vo.setDsCode(rs.getInt("ds_code"));
-				vo.setDsImage(rs.getString("ds_image"));
-				vo.setDsLikeIt(rs.getInt("like_It"));
+				vo = new BulletinVO();
+				vo.setBtCode(rs.getInt("bt_Code"));
+				vo.setBtContent(rs.getString("bt_content"));
+				vo.setBtFileName(rs.getString("bt_fileName"));
 				vo.setDsName(rs.getString("ds_name"));
-				vo.setDsInfo(rs.getString("ds_info"));
+				vo.setWriter(rs.getString("writer"));
 				list.add(vo);
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
@@ -41,19 +44,21 @@ public class DesignerServiceImpl extends DAO implements DesignerService{
 	}
 
 	@Override
-	public DesignerVO DesignerSelect(DesignerVO vo) {
-		sql = "select * from designer where ds_name = ?";
+	public BulletinVO bulletinSelect(BulletinVO vo) {
+		sql = "select * from bulletin where ds_name=?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getDsName());
 			rs = psmt.executeQuery();
-			if(rs.next()){
-				vo.setDsImage(rs.getString("ds_Image"));
-				vo.setDsInfo(rs.getString("ds_info"));
-				vo.setDsLikeIt(rs.getInt("like_it"));
-				vo.setDsCode(rs.getInt("ds_code"));
+			if(rs.next()) {
+				vo.setBtCode(rs.getInt("bt_Code"));
+				vo.setBtContent(rs.getString("bt_content"));
+				vo.setBtFileName(rs.getString("bt_fileName"));
+				vo.setDsName(rs.getString("ds_name"));
+				vo.setWriter(rs.getString("writer"));
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close();
@@ -62,23 +67,20 @@ public class DesignerServiceImpl extends DAO implements DesignerService{
 	}
 
 	@Override
-	public int insertDesigner(DesignerVO vo) {
-
+	public int insertBulletin(BulletinVO vo) {
 		return 0;
 	}
 
 	@Override
-	public int updateDesigner(DesignerVO vo) {
-		
+	public int updateBulletin(BulletinVO vo) {
 		return 0;
 	}
 
 	@Override
-	public int deleteDesigner(DesignerVO vo) {
-
+	public int deleteBulletin(BulletinVO vo) {
 		return 0;
 	}
-	
+
 	public void close() {
 
 		if (rs != null) {
@@ -103,5 +105,4 @@ public class DesignerServiceImpl extends DAO implements DesignerService{
 			}
 		}
 	}
-
 }

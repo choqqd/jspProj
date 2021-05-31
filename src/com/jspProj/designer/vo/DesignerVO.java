@@ -5,7 +5,14 @@ public class DesignerVO {
 	private String dsName;
 	private int dsLikeIt;
 	private String dsImage;
+	private String dsInfo;
 	
+	public String getDsInfo() {
+		return dsInfo;
+	}
+	public void setDsInfo(String dsInfo) {
+		this.dsInfo = dsInfo;
+	}
 	public int getDsCode() {
 		return dsCode;
 	}
