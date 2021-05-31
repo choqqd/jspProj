@@ -38,8 +38,7 @@
 	}
 	.de-box{
 		display: flex;
-    	padding: 55px 76px;
-    	border: 1px solid #e1e1e1;
+    	padding: 20px 100px;
     	box-sizing: border-box;
     	border-radius: 8px;
     	background-color: #fff;
@@ -55,20 +54,25 @@
     	color: #8c8c8c;
     	word-break:break-all;
     	word-wrap:break-word;
+    	margin-top: 30px;
 	}
 
 	.de-infobox{
 		display: inline-block;
 		border: 1px solid #e1e1e1;
-		box-sizing: border-box;
 		margin-right:50px;
 		margin-top: 20px;
 		
 	}
 	.info{
-		width: 220px; 
 	}
 	span{
+	display: block;
+	}
+	img{
+	width: 220px;
+	}
+	.inpu{
 	display: block;
 	}
 </style>
@@ -107,10 +111,12 @@
 
 
 				<div class="de-box1">
+					<h2> 후기 게시판</h2>
+					<button class="inpu" type = "button" onclick="bulletinInsert.do">후기 작성</button>
 					<c:forEach items="${blist }" var="bvo">
 						<div class="de-infobox" onclick="bulletinView(${bvo.btCode})">
 							<div class="info">
-								<img alt=""	src="${pageContext.request.contextPath }/bootstrap/img/${bvo.btFileName }">
+								<img src="${pageContext.request.contextPath }/bootstrap/img/${bvo.btFileName }">
 							</div>
 							<div class="info">
 								<span>${bvo.dsName} / ${bvo.writer }</span> <span>Designing
