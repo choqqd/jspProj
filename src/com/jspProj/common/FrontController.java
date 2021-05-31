@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jspProj.designer.web.DesignerPage;
+import com.jspProj.member.web.MemberInfo;
 import com.jspProj.member.web.MemberJoin;
 import com.jspProj.member.web.MemberJoinForm;
+import com.jspProj.member.web.MemberLogOut;
 import com.jspProj.member.web.MemberLogin;
 import com.jspProj.member.web.MemberLoginForm;
+import com.jspProj.member.web.MemberUpdate;
 
 
 public class FrontController extends HttpServlet {
@@ -28,6 +31,9 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLoginForm.do", new MemberLoginForm());
 		map.put("/memberJoinForm.do", new MemberJoinForm());
 		map.put("/memberJoin.do", new MemberJoin());
+		map.put("/memberLogOut.do", new MemberLogOut());
+		map.put("/memberInfo.do", new MemberInfo());
+		map.put("/memberUpdate.do", new MemberUpdate());
 		
 	//디자이너 탭
 		map.put("/designerPage.do", new DesignerPage());
