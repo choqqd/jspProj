@@ -13,7 +13,7 @@
 	}
 	
 	function bulletinView(code){
-		bfrm.dtCode.value=code;
+		bfrm.btCode.value=code;
 		bfrm.submit();
 	}
 </script>
@@ -47,18 +47,22 @@
 	}
 	.de-box1{
 		width: 90%;
-		display: flex;
     	padding: 55px 76px;
     	border: 1px solid #e1e1e1;
     	background-color: #fff;
     	box-sizing: border-box;
     	border-radius: 8px;
     	color: #8c8c8c;
+    	word-break:break-all;
+    	word-wrap:break-word;
 	}
+
 	.de-infobox{
+		display: inline-block;
 		border: 1px solid #e1e1e1;
 		box-sizing: border-box;
-		margin-right:50px;  
+		margin-right:50px;
+		margin-top: 20px;
 		
 	}
 	.info{
@@ -75,7 +79,7 @@
 		<input type="hidden" id ="DesinerName" name = "DesinerName" >
 	</form>
 	<form id="bfrm" action="bulletinView.do" method="post">
-		<input type="hidden" id="dtCode" name="dtCode">
+		<input type="hidden" id="btCode" name="btCode">
 	</form>
 	<div style="width: 80%; margin: 0 auto;">
 		<ul class = "ds-ul">
@@ -90,28 +94,38 @@
 	
 	
 	<div class="de-allbox">
-		<div id = "showdox" class="de-box1">
-			<div class="de-box">
-				<div class="de-box"><img src ="${pageContext.request.contextPath }/bootstrap/img/${rvo.dsImage }"> </div>
-				<div class="de-box"> ${rvo.dsInfo }</div>
-			</div>
-		</div>
-		
-		
-		<div class="de-box1">
-		<c:forEach items="${blist }" var="bvo">
-			<div class="de-infobox" onclick="bulletinView(${bvo.btCode})">
-				<div class="info">
-					<img alt="" src="${pageContext.request.contextPath }/bootstrap/img/${bvo.btFileName }">
+		<c:choose>
+			<c:when test="${!empty rvo }">
+				<div id="showdox" class="de-box1">
+					<div class="de-box">
+						<div class="de-box">
+							<img src="${pageContext.request.contextPath }/bootstrap/img/${rvo.dsImage }">
+						</div>
+						<div class="de-box">${rvo.dsInfo }</div>
+					</div>
 				</div>
-				<div class="info">
-					<span>${bvo.dsName} / ${bvo.writer }</span>
-					<span>Designing NO. ${bvo.btCode }</span>
-					<span>${bvo.btContent }</span>
+
+
+				<div class="de-box1">
+					<c:forEach items="${blist }" var="bvo">
+						<div class="de-infobox" onclick="bulletinView(${bvo.btCode})">
+							<div class="info">
+								<img alt=""	src="${pageContext.request.contextPath }/bootstrap/img/${bvo.btFileName }">
+							</div>
+							<div class="info">
+								<span>${bvo.dsName} / ${bvo.writer }</span> <span>Designing
+									NO. ${bvo.btCode }</span> <span>${bvo.btContent }</span>
+							</div>
+						</div>
+					</c:forEach>
 				</div>
-			</div>
-		</c:forEach>
-		</div>
+			</c:when>
+			<c:otherwise>
+				<div class="de-box">
+					디자이너를 클릭해주세요!
+				</div>
+			</c:otherwise>
+		</c:choose>
 	</div>
 </body>
 </html>

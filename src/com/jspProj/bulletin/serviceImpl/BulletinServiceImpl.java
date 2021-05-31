@@ -45,20 +45,19 @@ public class BulletinServiceImpl extends DAO implements BulletinService{
 
 	@Override
 	public BulletinVO bulletinSelect(BulletinVO vo) {
-		sql = "select * from bulletin where ds_name=?";
+		sql = "select * from bulletin where bt_code=?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo.getDsName());
+			psmt.setInt(1, vo.getBtCode());
 			rs = psmt.executeQuery();
 			if(rs.next()) {
-				vo.setBtCode(rs.getInt("bt_Code"));
+				vo.setBtCode(rs.getInt("bt_code"));
 				vo.setBtContent(rs.getString("bt_content"));
 				vo.setBtFileName(rs.getString("bt_fileName"));
 				vo.setDsName(rs.getString("ds_name"));
 				vo.setWriter(rs.getString("writer"));
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close();
