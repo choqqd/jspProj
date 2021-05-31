@@ -43,7 +43,7 @@
 						<li class="current"><a href="index.do">Home</a></li>
 						<li><a class="nav-link" href="info.do">소개</a></li>
 						<li><a href="designerPage.do">Designer</a></li>
-						<li><a href="interior.do">interior</a></li>
+						<li><a href="interiorList.do">interior</a></li>
 						<li><a href="cart.do">ShopingCart</a></li>
 					</ul>
 					<a href="#" class="nav-close"><i class="fal fa-times"></i></a>

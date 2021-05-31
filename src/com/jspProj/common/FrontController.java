@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jspProj.designer.web.DesignerPage;
 import com.jspProj.designer.web.DesignerinfoPage;
+import com.jspProj.interior.web.InteriorList;
 import com.jspProj.member.web.MemberInfo;
 import com.jspProj.member.web.MemberJoin;
 import com.jspProj.member.web.MemberJoinForm;
@@ -39,6 +40,9 @@ public class FrontController extends HttpServlet {
 	//디자이너 탭
 		map.put("/designerPage.do", new DesignerPage());
 		map.put("/designerinfoPage.do", new DesignerinfoPage());
+		
+	// 인테리어 탭
+		map.put("/interiorList.do", new InteriorList());
 	}
 	
 	@Override
