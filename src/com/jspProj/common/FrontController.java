@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jspProj.bulletin.web.BulletinView;
 import com.jspProj.designer.web.DesignerPage;
 import com.jspProj.designer.web.DesignerinfoPage;
 import com.jspProj.interior.web.InteriorList;
@@ -40,6 +41,8 @@ public class FrontController extends HttpServlet {
 	//디자이너 탭
 		map.put("/designerPage.do", new DesignerPage());
 		map.put("/designerinfoPage.do", new DesignerinfoPage());
+		map.put("/bulletinView.do", new BulletinView()); //후기게시판 상세보기
+		
 		
 	// 인테리어 탭
 		map.put("/interiorList.do", new InteriorList());

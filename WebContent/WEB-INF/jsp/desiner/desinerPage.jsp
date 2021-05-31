@@ -11,6 +11,11 @@
 		frm.DesinerName.value=Name;
 		frm.submit();
 	}
+	
+	function bulletinView(code){
+		bfrm.dtCode.value=code;
+		bfrm.submit();
+	}
 </script>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -45,9 +50,9 @@
 		display: flex;
     	padding: 55px 76px;
     	border: 1px solid #e1e1e1;
+    	background-color: #fff;
     	box-sizing: border-box;
     	border-radius: 8px;
-    	background-color: #fff;
     	color: #8c8c8c;
 	}
 	.de-infobox{
@@ -68,6 +73,9 @@
 	<h2>Desiner List Info</h2>
 	<form id = "frm" action="designerinfoPage.do" method="post">
 		<input type="hidden" id ="DesinerName" name = "DesinerName" >
+	</form>
+	<form id="bfrm" action="bulletinView.do" method="post">
+		<input type="hidden" id="dtCode" name="dtCode">
 	</form>
 	<div style="width: 80%; margin: 0 auto;">
 		<ul class = "ds-ul">
@@ -92,7 +100,7 @@
 		
 		<div class="de-box1">
 		<c:forEach items="${blist }" var="bvo">
-			<div class="de-infobox" onclick="">
+			<div class="de-infobox" onclick="bulletinView(${bvo.btCode})">
 				<div class="info">
 					<img alt="" src="${pageContext.request.contextPath }/bootstrap/img/${bvo.btFileName }">
 				</div>
