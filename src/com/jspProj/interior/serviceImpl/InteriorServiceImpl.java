@@ -29,13 +29,16 @@ public class InteriorServiceImpl extends DAO implements InteriorService{
 				vo.setItemName(rs.getString("item_name"));
 				vo.setPrice(rs.getInt("price"));
 				vo.setDsName(rs.getString("ds_name"));
+				vo.setItemDesc(rs.getString("item_desc"));
+				vo.setItemImage(rs.getString("item_image"));
+				list.add(vo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return null;
+		return list;
 	}
 
 	@Override
