@@ -25,56 +25,107 @@
 	}
 </script>
 <style>
-#LoginTop>h2 {
+body {
+	font-size: 0.75em;
+}
+
+#wrap {
+	border: 1px solid #dde7e9;
+	margin: 100px auto 100px;
+	width: 20%;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+	cursor: auto;
+}
+
+a:link:active, a:visited:active {
+	color: black;
+	text-decoration: none;
+}
+
+a:link, a:visited {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#LoginTop {
+	width: 100%;
+	margin: 0px;
 	display: inline-block;
-	margin: 20px;
+}
+
+#LoginTop>h4 {
+	text-align: center;
+	display: inline-block;
+	margin: 15px 0px 0px 0px;
+}
+
+.join {
+	font-size: 1.5em; width : 49%;
+	padding: 20px 0;
+	text-align: center;
+	background: #f7f7f7;
+	color: #6e6e6e;
+	float: right;
+	margin-right: 0px;
+	width: 49%;
 }
 
 table {
-	margin: 20px 0px;
+	padding: 30px;
+	width: 100%;
 }
 
 button {
-	margin: 20px 0px;
+	margin: 30px 15px;
 	border: 1px solid black;
 }
 
+
 td {
-	padding: 10px 0px;
+	padding: 20px 0px;
 }
 
 input {
 	border: 1px solid black;
+	width: 80%;
+	margin-left: 35px;
 }
 </style>
 </head>
 <body>
 	<hr>
-	<div align="center">
-
-		<div id="LoginTop">
-			<h2>로그인</h2>
-			<h2>
-				<a href="memberJoinForm.do">회원가입</a>
-			</h2>
+	<div id="wrap">
+		<div id="LoginTop" align="center">
+			<h4>
+				<span>로그인</span>
+			</h4>
+			<a href="memberJoinForm.do" class="join">회원가입</a>
 		</div>
+		<div align="center">
+			<form id="frm" action="memberLoginForm.do" method="post">
+				<table>
+					<tr>
+						<td><input type="text" name="id" id="memberId" value="아이디"
+							onFocus="this.value='';return true;"></td>
+					</tr>
+					<tr>
+						<td><input type="password" name="pwd" id="memberPwd"
+							value="비밀번호" onFocus="this.value='';return true;"></td>
+					</tr>
+				</table>
 
-		<form id="frm" action="memberLoginForm.do" method="post">
-			<table>
-				<tr>
-					<th>아이디</th>
-					<td><input type="text" name="id" id="memberId"></td>
-				</tr>
-				<tr>
-					<th>비밀번호</th>
-					<td><input type="password" name="pwd" id="memberPwd"></td>
-				</tr>
-			</table>
-			<button type="button" class="btn btn-outline-dark" onclick="Check()">로그인</button>
-			<button type="reset" class="btn btn-outline-dark">취소</button>
-			<button type="button" class="btn btn-outline-dark"
-				onclick="location.href='index.do'">첫 페이지</button>
-		</form>
+				<button type="button" class="btn btn-outline-dark" onclick="Check()">로그인</button>
+				<button type="reset" class="btn btn-outline-dark">취소</button>
+				<button type="button" class="btn btn-outline-dark"
+					onclick="location.href='index.do'">첫 페이지</button>
+			</form>
+
+		</div>
 
 	</div>
 	<hr>

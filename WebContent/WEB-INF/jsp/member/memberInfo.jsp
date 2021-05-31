@@ -25,14 +25,13 @@ input {
 	border-top: 1px solid gray;
 	border-bottom: 1px solid gray;
 	width: 100%;
+	margin: 10px 0px;
 }
-
-button {
-	margin: 20px 40px;
+#bottomBtn {
+	margin: 30px 20px;
 }
-
 #checkBtn {
-	margin: 20px auto;
+	margin: 30px 0px;
 }
 </style>
 
@@ -87,11 +86,11 @@ button {
 						onFocus="this.value='';return true;">${info.memberReq }</textarea></td>
 			</tr>
 		</table>
-		<button type="button" class="btn btn-outline-dark"
+		<button type="button" class="btn btn-outline-dark" id="bottomBtn"
 			onclick="updateCheck()">정보수정</button>
-		<button type="button" class="btn btn-outline-dark"
+		<button type="button" class="btn btn-outline-dark" id="bottomBtn"
 			onclick="location.href='memberUpdate.do?id=${info.memberId}'">회원탈퇴</button>
-		<button type="button" class="btn btn-outline-dark"
+		<button type="button" class="btn btn-outline-dark" id="bottomBtn"
 			onclick="location.href='index.do'">첫 페이지</button>
 	</form>
 </div>
