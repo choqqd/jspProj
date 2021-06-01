@@ -1,3 +1,5 @@
+<%@page import="com.jspProj.member.serviceImpl.MemberServiceImpl"%>
+<%@page import="com.jspProj.member.vo.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -66,7 +68,8 @@ a:link, a:visited {
 }
 
 .join {
-	font-size: 1.5em; width : 49%;
+	font-size: 1.5em;
+	width: 49%;
 	padding: 20px 0;
 	text-align: center;
 	background: #f7f7f7;
@@ -85,7 +88,6 @@ button {
 	margin: 30px 15px;
 	border: 1px solid black;
 }
-
 
 td {
 	padding: 20px 0px;
