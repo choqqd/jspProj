@@ -5,8 +5,7 @@
 <!DOCTYPE html>
 
 <html>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <style>
 .wrap {
 	height: auto;
@@ -20,7 +19,7 @@
 }
 
 .textArea {
-	width: 40%;
+	width: 50%;
 	display: inline-block;
 	text-align: center;
 	margin: 15px auto;
@@ -51,7 +50,7 @@
 
 .itemImage {
 	width: 500px;
-	height: 500px;
+	height: 570px;
 	float: left;
 	padding: 30px;
 	margin-left: 100px;
@@ -60,7 +59,7 @@
 .dsImg {
 	width: 100px;
 	height: 100px;
-	margin: 20px;
+	margin: 20px 50px;
 }
 
 #fuckInput {
@@ -70,20 +69,34 @@
 }
 
 input {
-	width: 10%;
+	width: 70px;
 	height: auto;
 	background-color: #fff;
 	color: #81a3bb;
 	padding: 0px;
 	font-size: 16px;
-	border: none;
-	overflow: hidden;
 	background-color: #fff;
 }
+
+#frm {
+	float: inherit;
+	text-align: left;
+	margin: 0px auto;
+}
+
+#inputBtn {
+	margin-left: 5px;
+}
+
+#buyIt {
+	float: left;
+	margin: 0px 10px;
+}
 </style>
-<body>
+<body onload="init();">
 	<hr>
 	<div class="wrap">
+
 		<div class="Area">
 			<img class="itemImage"
 				src="${pageContext.request.contextPath }/bootstrap/img/${select.itemImage}">
@@ -104,24 +117,79 @@ input {
 							src="${pageContext.request.contextPath }/bootstrap/img/${select.dsImage}">
 						</td>
 					</tr>
-					<tr class="trTag">
-						<th>판매가격</th>
-						<td>${select.price }</td>
-					</tr>
 				</table>
 				<div>
-					수량 : <input type=hidden name="sell_price" value="${select.price }">
-					<input type="text" name="amount" value="1" onchange="change();">
-					<input type="button" value=" + " onclick="add();"> <input
-						type="button" value=" - " onclick="del();"> 금액 : <input
-						type="text" class="form-control num_only num_comma num_sum"
-						id="fn_type1_price" name="fn_type1_price" value="" placeholder="">원
+					<!--
+					<form action="get" id="frm">
+						<input id="sell_price" type="hidden" value="${select.price }"> 
+						수량 : <input type="text" class="i1"> 주문금액 : <span></span>
+					</form>
+					  -->
+					<form id="frm" name="form" method="get">
+						수량 : <input type=hidden name="sell_price" value="${select.price }">
+						<input type="text" name="amount" value="1" size="3"
+							onchange="change();">개 <input
+							class="btn btn-outline-dark" id="inputBtn" type="button"
+							value=" + " onclick="add();"> <input id="inputBtn"
+							class="btn btn-outline-dark" type="button" value=" - "
+							onclick="del();"> <br> 금액 : <input type="text"
+							name="sum" size="11" readonly>원
+						<br>
+						<button id="buyIt" type="button" class="btn btn-outline-dark">구매하기</button>
+						<button id="buyIt" type="button" class="btn btn-outline-dark">장바구니</button>
+					</form>
 				</div>
-
 			</div>
 		</div>
 	</div>
 	<hr>
+	<div>
+		<h1 style="text-align: center">~~상세내용들~~</h1>
+	</div>
 </body>
-콘솔에 히든 val 찍어보기 
+<script>
+	/*$(document).ready(function() {
+		$('.i1').on('keyup', function(e) {
+			var amount = ($('#sell_price').val() * $('.i1').val());
+			$('span').append(amount + '원');
+		});
+	})*/
+
+	var sell_price;
+	var amount;
+
+	function init() {
+		sell_price = document.form.sell_price.value;
+		amount = document.form.amount.value;
+		document.form.sum.value = sell_price;
+		change();
+	}
+
+	function add() {
+		hm = document.form.amount;
+		sum = document.form.sum;
+		hm.value++;
+
+		sum.value = parseInt(hm.value) * sell_price;
+	}
+
+	function del() {
+		hm = document.form.amount;
+		sum = document.form.sum;
+		if (hm.value > 1) {
+			hm.value--;
+			sum.value = parseInt(hm.value) * sell_price;
+		}
+	}
+
+	function change() {
+		hm = document.form.amount;
+		sum = document.form.sum;
+
+		if (hm.value < 0) {
+			hm.value = 0;
+		}
+		sum.value = parseInt(hm.value) * sell_price;
+	}
+</script>
 </html>
