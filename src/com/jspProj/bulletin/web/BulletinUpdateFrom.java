@@ -9,7 +9,14 @@ public class BulletinUpdateFrom implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		return null;
+		String dsname = request.getParameter("dsname");
+		String content = request.getParameter("content");
+		String btcode = request.getParameter("btcode");
+		
+		request.setAttribute("dsname",dsname);
+		request.setAttribute("content",content);
+		request.setAttribute("btcode",btcode);
+		return "bulletin/bulletinUpdateForm.tiles";
 	}
 
 }
