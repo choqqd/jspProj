@@ -31,7 +31,7 @@
 	padding-top: 20px;
 }
 
-ul {
+.ulTag {
 	word-spacing: 0.1em;
 	list-style: none;
 	font-size: 24pt;
@@ -64,7 +64,7 @@ ul {
 					id="itemImg">
 			</div>
 			<div id="itemTextArea">
-				<ul>
+				<ul class="ulTag">
 					<li><img id="circle"
 						src="${pageContext.request.contextPath }/bootstrap/img/circle.png">
 						<span>${list.itemName }</span></li>
@@ -72,7 +72,7 @@ ul {
 					<li><fmt:formatNumber type="currency" value="${list.price }"></fmt:formatNumber></li>
 				</ul>
 				<button id="btn" class="btn btn-outline-dark"
-					onclick="location.href='interiorSelect.do?itemCode=${list.itemCode}'">자세히 보기</button>
+					onclick="location.href='interiorSelect.do?itemCode=${list.itemCode}&dsName=${list.dsName}'">자세히 보기</button>
 			</div>
 		</div>
 	</c:forEach>

@@ -7,7 +7,16 @@ public class InteriorVO {
 	private String dsName;
 	private String itemDesc;
 	private String itemImage;
+	private String dsImage;
+	
+	public String getDsImage() {
+		return dsImage;
+	}
 
+	public void setDsImage(String dsImage) {
+		this.dsImage = dsImage;
+	}
+	
 	public String getItemCode() {
 		return itemCode;
 	}

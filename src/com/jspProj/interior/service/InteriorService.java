@@ -7,7 +7,7 @@ import com.jspProj.interior.vo.InteriorVO;
 public interface InteriorService {
 	List<InteriorVO> interiorList();
 
-	InteriorVO selectInterior();
+	InteriorVO selectInterior(InteriorVO vo);
 
 	public int insertInterior(InteriorVO vo);
 

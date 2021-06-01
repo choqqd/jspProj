@@ -10,7 +10,7 @@ import com.jspProj.common.DAO;
 import com.jspProj.interior.service.InteriorService;
 import com.jspProj.interior.vo.InteriorVO;
 
-public class InteriorServiceImpl extends DAO implements InteriorService{
+public class InteriorServiceImpl extends DAO implements InteriorService {
 
 	PreparedStatement psmt;
 	ResultSet rs;
@@ -23,7 +23,7 @@ public class InteriorServiceImpl extends DAO implements InteriorService{
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				InteriorVO vo = new InteriorVO();
 				vo.setItemCode(rs.getString("item_code"));
 				vo.setItemName(rs.getString("item_name"));
@@ -42,9 +42,27 @@ public class InteriorServiceImpl extends DAO implements InteriorService{
 	}
 
 	@Override
-	public InteriorVO selectInterior() {
-		// TODO Auto-generated method stub
-		return null;
+	public InteriorVO selectInterior(InteriorVO vo) {
+		sql = "select D.ds_image, i.* from item i, DESIGNER D where i.item_code = ? and D.ds_name= ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getItemCode());
+			psmt.setString(2, vo.getDsName());
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				vo.setItemName(rs.getString("item_name"));
+				vo.setItemDesc(rs.getString("item_desc"));
+				vo.setItemImage(rs.getString("item_image"));
+				vo.setDsName(rs.getString("ds_name"));
+				vo.setDsImage(rs.getString("ds_image"));
+				vo.setPrice(rs.getInt("price"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return vo;
 	}
 
 	@Override
