@@ -50,7 +50,7 @@
 
 .itemImage {
 	width: 500px;
-	height: 570px;
+	height: 600px;
 	float: left;
 	padding: 30px;
 	margin-left: 100px;
@@ -69,17 +69,19 @@
 }
 
 input {
-	width: 70px;
+	width: 80px;
 	height: auto;
 	background-color: #fff;
 	color: #81a3bb;
 	padding: 0px;
 	font-size: 16px;
 	background-color: #fff;
+	text-align: center;
+	margin: 10px 0px;
 }
 
 #frm {
-	float: inherit;
+	float: left;
 	text-align: left;
 	margin: 0px auto;
 }
@@ -90,7 +92,7 @@ input {
 
 #buyIt {
 	float: left;
-	margin: 0px 10px;
+	margin-left: 5px;
 }
 </style>
 <body onload="init();">
@@ -126,14 +128,17 @@ input {
 					</form>
 					  -->
 					<form id="frm" name="form" method="get">
-						수량 : <input type=hidden name="sell_price" value="${select.price }">
-						<input type="text" name="amount" value="1" size="3"
-							onchange="change();">개 <input
-							class="btn btn-outline-dark" id="inputBtn" type="button"
-							value=" + " onclick="add();"> <input id="inputBtn"
-							class="btn btn-outline-dark" type="button" value=" - "
-							onclick="del();"> <br> 금액 : <input type="text"
-							name="sum" size="11" readonly>원
+						<h5>
+							수량 : <input type=hidden name="sell_price"
+								value="${select.price }"> <input type="text"
+								name="amount" value="1" size="3" onchange="change();">개
+							<input class="btn btn-outline-dark" id="inputBtn" type="button"
+								value=" + " onclick="add();"> <input id="inputBtn"
+								class="btn btn-outline-dark" type="button" value=" - "
+								onclick="del();">
+						
+						<br> 금액 : <input type="text" name="sum" size="11" readonly>원
+						</h5>
 						<br>
 						<button id="buyIt" type="button" class="btn btn-outline-dark">구매하기</button>
 						<button id="buyIt" type="button" class="btn btn-outline-dark">장바구니</button>
