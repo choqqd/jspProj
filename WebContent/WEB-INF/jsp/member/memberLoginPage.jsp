@@ -11,12 +11,12 @@
 <!-- 로그인 체크 및 submit -->
 <script>
 	function Check() {
-		if (frm.memberId.value == "") {
+		if (frm.memberId.value == "아이디") {
 			alert("아이디를 입력해주세요!");
 			frm.memberId.focus();
 			return false;
 		}
-		if (frm.memberPwd.value == "") {
+		if (frm.memberPwd.value == "비밀번호dddd") {
 			alert("비밀번호를 입력해주세요!");
 			frm.memberPwd.focus();
 			return false;
