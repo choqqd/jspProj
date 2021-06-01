@@ -4,19 +4,18 @@
 
 <style>
 #bigWrap {
-	width: 1920px;
-	height: auto;
-	margin: 30px auto;
+	width: 100%;
+	height: 3000px;
+	margin: auto;
 	background-color: #f6f6f6;
 }
 
 #smallWrap {
 	width: 1100px;
 	height: 500px;
-	margin: 50px auto;
-	border-radius: 30px; margin : 50px auto;
+	border-radius: 30px;
+	margin: 20px auto;
 	background-color: white;
-	margin: 50px auto;
 }
 
 #itemImg {
@@ -36,19 +35,22 @@
 <!-- interiorList.do 요청 후 결과 값 -->
 <hr>
 <div id="bigWrap">
-	큰 DIV
-	<div id="smallWrap">
-		<div>
-			<img
-				src="${pageContext.request.contextPath }/bootstrap/img/kitchen.jpg"
-				id="itemImg">
+	<c:forEach items="${interior }" var="list">
+		<div id="smallWrap">
+			<div id="itemArea">
+				<img
+					src="${pageContext.request.contextPath }/bootstrap/img/${list.itemImage}"
+					id="itemImg">
+			</div>
+			<div id="itemTextArea">
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
 		</div>
-		<div id="itemTextArea">
-			dasfdasgagaregfadfadsgagdagfdfsgfsdgsdgsgr
-		</div>
-	</div>
-	<div id="smallWrap">작은 DIV</div>
-	<div id="smallWrap">작은 DIV</div>
-	<div id="smallWrap">작은 DIV</div>
+	</c:forEach>
 </div>
 <hr>
