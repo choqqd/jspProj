@@ -40,11 +40,11 @@
 				class="header-right d-flex align-items-center justify-content-end">
 				<div class="site-nav-menu">
 					<ul class="primary-menu">
-						<li class="current"><a href="index.do">Home</a></li>
-						<li><a class="nav-link" href="info.do">소개</a></li>
-						<li><a href="designerPage.do">Designer</a></li>
-						<li><a href="interiorList.do">interior</a></li>
-						<li><a href="cart.do">ShopingCart</a></li>
+						<li><a class="nav-link" href="index.do">Home</a></li>
+						<li><a class="nav-link" href="info.do">Brand Story</a></li>
+						<li><a class="nav-link" href="designerPage.do">Designer</a></li>
+						<li><a class="nav-link" href="interiorList.do">interior</a></li>
+						<li><a class="nav-link" href="cart.do">ShopingCart</a></li>
 					</ul>
 					<a href="#" class="nav-close"><i class="fal fa-times"></i></a>
 				</div>
