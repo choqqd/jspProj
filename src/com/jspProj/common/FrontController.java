@@ -15,6 +15,7 @@ import com.jspProj.bulletin.web.BulletinView;
 import com.jspProj.designer.web.DesignerPage;
 import com.jspProj.designer.web.DesignerinfoPage;
 import com.jspProj.interior.web.InteriorList;
+import com.jspProj.interior.web.InteriorSelect;
 import com.jspProj.member.web.MemberInfo;
 import com.jspProj.member.web.MemberJoin;
 import com.jspProj.member.web.MemberJoinForm;
@@ -48,6 +49,7 @@ public class FrontController extends HttpServlet {
 		
 	// 인테리어 탭
 		map.put("/interiorList.do", new InteriorList());
+		map.put("/interiorSelect.do", new InteriorSelect());
 	}
 	
 	@Override
