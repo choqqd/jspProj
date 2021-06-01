@@ -19,10 +19,10 @@ public class UploadImage extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setCharacterEncoding("utf-8");
-		String path = "c:/tmp";
+		resp.setCharacterEncoding("UTF-8");
+		String path = "C:/tmp";
 		ServletContext sc = this.getServletContext();
-		sc.getRealPath("uploadUserInfo");
+		sc.getRealPath("uploadImage");
 
 		MultipartRequest multi = new MultipartRequest(req, //
 				path, //
@@ -41,7 +41,7 @@ public class UploadImage extends HttpServlet {
 		JsonObject json = new JsonObject();
 		json.addProperty("uploaded", 1);
 		json.addProperty("fileName", fileN);
-		json.addProperty("url", req.getContextPath() + "/uploadUserInfo/" + fileN);
+		json.addProperty("url", req.getContextPath() + "/uploadImage/" + fileN);
 		resp.getWriter().print(json);
 	}
 }

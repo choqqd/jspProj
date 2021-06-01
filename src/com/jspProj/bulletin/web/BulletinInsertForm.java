@@ -10,7 +10,7 @@ public class BulletinInsertForm implements DbCommand {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		return "bulletin/bulletinInsertForm.files";
+		return "bulletin/bulletinInsertForm.tiles";
 	}
 
 }
