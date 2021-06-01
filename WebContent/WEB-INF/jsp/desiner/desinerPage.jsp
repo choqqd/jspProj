@@ -112,15 +112,17 @@
 
 				<div class="de-box1">
 					<h2> 후기 게시판</h2>
-					<button class="inpu" type = "button" onclick="location.href='bulletinInsertForm.do'">후기 작성</button>
+					<c:if test="${!empty id }">
+						<button class="inpu" type = "button" onclick="location.href='bulletinInsertForm.do'">후기 작성</button>
+					</c:if>
 					<c:forEach items="${blist }" var="bvo">
 						<div class="de-infobox" onclick="bulletinView(${bvo.btCode})">
 							<div class="info">
-								<img src="${pageContext.request.contextPath }/bootstrap/img/${bvo.btFileName }">
+								<img src="${pageContext.request.contextPath }/bootstrap/img/cont.PNG">
 							</div>
 							<div class="info">
-								<span>${bvo.dsName} / ${bvo.writer }</span> <span>Designing
-									NO. ${bvo.btCode }</span> <span>${bvo.btContent }</span>
+								<span>Designer: ${bvo.dsName} </span> <span>Designing
+									NO. ${bvo.btCode }</span> <span>작성자: ${bvo.writer }</span>
 							</div>
 						</div>
 					</c:forEach>

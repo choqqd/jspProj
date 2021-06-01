@@ -67,7 +67,25 @@ public class BulletinServiceImpl extends DAO implements BulletinService{
 
 	@Override
 	public int insertBulletin(BulletinVO vo) {
-		return 0;
+		sql = "insert into bulletin(BT_CODE,BT_CONTENT,ds_name,writer) VALUES(bulletin_seq.nextval,?,?,?)";
+		int r = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getBtContent());
+			psmt.setString(2, vo.getDsName());
+			psmt.setString(3, vo.getWriter());
+			
+			r = psmt.executeUpdate();
+			if(r>0) 
+				System.out.println("성공");
+			else
+				System.out.println("실패");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return r;
 	}
 
 	@Override

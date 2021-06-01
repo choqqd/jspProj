@@ -1,47 +1,67 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+function deleteCheck(btcode){
+	if(confirm("정말 삭제하시겠습니까 ?") == true){
+        frm.btcode.valu = btcode
+        frm.submit();
+    }
+    else{
+        return ;
+    }
+}
+</script>
 <style>
-.s-title{
+.s-title {
 	display: inline-block;
-    line-height: 20px;
-    background: #e2eaf6;
-    color: #3a8afd;
-    padding: 0 10px;
-    border-radius: 3px;
+	line-height: 20px;
+	background: #e2eaf6;
+	color: #3a8afd;
+	padding: 0 10px;
+	border-radius: 3px;
 }
-h2{
+
+h2 {
 	display: block;
-    font-size: 2em;
-    margin: 5px 0 0;
-    word-break: break-all;
+	font-size: 2em;
+	margin: 5px 0 0;
+	word-break: break-all;
 }
-.bt-he{
+
+.bt-he {
 	width: 80%;
 	margin: 10px auto;
 }
-.bt-se{
+
+.bt-se {
 	text-align: center;
 	min-height: 200px;
-    height: auto;
+	height: auto;
 }
 </style>
 </head>
 <body>
-	<div class="bt-he">
-		<span class="s-title">${bvo.dsName }</span>
-		<h2>Designing No.${bvo.btCode }</h2>
-		<span>${bvo.writer } </span>
-	</div>
-	<div class="bt-se">
-		<img src="${pageContext.request.contextPath }/bootstrap/img/${bvo.btFileName }">
-		<p>${bvo.btContent }</p>
-	</div>
+	<form id="frm" action="bulletinDelete.do" method="post">
+		<input type="hidden" id="btcode" name="btcode">
+	</form>
+		<div class="bt-he">
+			<span class="s-title">${bvo.dsName }</span>
+			<h2>Designing No.${bvo.btCode }</h2>
+			<span>${bvo.writer } </span>
+		</div>
+		<div class="bt-se">
+			<img src="${pageContext.request.contextPath }/bootstrap/img/${bvo.btFileName }">	<p>${bvo.btContent }</p>
+		</div>
+		<c:if test="${name eq bvo.writer}">
+			<button type="button" onclick = "deleteCheck(${bvo.btCode })">삭제하기</button>
+		</c:if>
 	<button type="button" onclick="location.href='designerPage.do'"> 목록보기</button>
+
 </body>
 </html>

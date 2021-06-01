@@ -30,6 +30,14 @@ function formCheck(){
 	width: 80%;
 	min-height: 400px;
 }
+input{
+	width: 250px;
+	height: 30px;
+	background-color: #fff;
+	color: #81a3bb;
+	border: 1px solid pink;
+	border-radius: 2px;
+}
 </style>
 </head>
 <body>
@@ -38,12 +46,12 @@ function formCheck(){
 			<input type = "hidden" name="name" value ="${name }">
 			<table class="table">
 				<tr>
-					<th>작성자</th>
+					<th width="200px">작성자 </th>
 					<td>${name }</td>
 				</tr>
 				<tr>
-					<th>내용</th>
-					<td></td>
+					<th>디자이너 이름 </th>
+					<td><input id="dsname" name="dsname"></td>
 				</tr>
 				<tr>
 					<td colspan="2"><textarea id="content" name="content" rows="30" cols="90"></textarea></td>
