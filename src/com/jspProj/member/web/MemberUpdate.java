@@ -36,9 +36,10 @@ public class MemberUpdate implements DbCommand {
 			vo.setMemberReq(req);
 			vo.setMemberTel(tel);
 			n = service.updateMember(vo);
-			System.out.println(id + pwd + name + mail + tel + addr + req);
 			if (n != 0) {
 				path = "/memberInfo.do";
+				session.setAttribute("id", vo.getMemberId());
+				session.setAttribute("name", vo.getMemberName());
 			} else {
 				path = "/index.do";
 			}

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 <style>
 #wrap {
 	margin: 30px auto;
@@ -14,6 +15,7 @@ table {
 }
 
 td {
+	width: 100%;
 	padding: 10px 20px;
 }
 
@@ -27,16 +29,23 @@ input {
 	width: 100%;
 	margin: 10px 0px;
 }
+
 #bottomBtn {
 	margin: 30px 20px;
 }
+
+#textarea {
+	text-align: center;
+	
+}
+
 #checkBtn {
 	margin: 30px 0px;
 }
 </style>
 
 <div id="wrap" align="center">
-	<h2>${info.memberName }님의회원정보</h2>
+	<h2 style="margin: 50px 0px;">${info.memberName }님의 회원정보</h2>
 	<form id="frm" action="memberUpdate.do" method="post">
 		<input type="hidden" name="id" id="id" value="${info.memberId }">
 		<table id="update">
@@ -81,7 +90,7 @@ input {
 				<th colspan="2" style="text-align: center">요청사항</th>
 			</tr>
 			<tr>
-				<td colspan="2"><textarea
+				<td id="textarea" colspan="2"><textarea
 						style="border: 1px solid black; text-align: center" name="req"
 						onFocus="this.value='';return true;">${info.memberReq }</textarea></td>
 			</tr>
@@ -96,20 +105,31 @@ input {
 </div>
 
 <script>
-	$(document).ready(function() {
-		$('#checkPwd').click(function() {
-			if ($('#pwd').val() == $('#pwdCheck').val()) {
-				alert('일치합니다.');
-				$('#name').focus();
-				$('#checkPwd').val('checked');
-			} else {
-				alert('비밀번호가 일치하지 않습니다.');
-				$('#pwd').val('');
-				$('#checkPwd').val('');
-				$('#pwd').focus();
-			}
-		});
-	});
+	$(document)
+			.ready(
+					function() {
+						CKEDITOR
+								.replace(
+										'req',
+										{
+											filebrowserUploadUrl : '${pageContext.request.contextPath }/uploadImage',
+											height : '500px',
+											width : '1200px'
+										});
+
+						$('#checkPwd').click(function() {
+							if ($('#pwd').val() == $('#pwdCheck').val()) {
+								alert('일치합니다.');
+								$('#name').focus();
+								$('#checkPwd').val('checked');
+							} else {
+								alert('비밀번호가 일치하지 않습니다.');
+								$('#pwd').val('');
+								$('#checkPwd').val('');
+								$('#pwd').focus();
+							}
+						});
+					});
 
 	function updateCheck() {
 		if (frm.checkPwd.value == 'unChecked') {

@@ -6,7 +6,6 @@
 #bigWrap {
 	width: 100%;
 	height: auto;
-	margin: auto;
 	background-color: #f6f6f6;
 }
 
@@ -14,7 +13,7 @@
 	width: 1100px;
 	height: 500px;
 	border-radius: 30px;
-	margin: 20px auto;
+	margin: 50px auto;
 	background-color: white;
 }
 
