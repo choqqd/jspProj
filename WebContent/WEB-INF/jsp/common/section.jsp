@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+	
+
 
     <!--====== Banner Slider Start ======-->
     <section class="banner-slider banner-slider-two banner-slider-active">
@@ -10,14 +12,11 @@
                         <div class="banner-text">
                             <div class="banner-content">
                                 <span data-animation="fadeInUp" data-delay="0.3s" class="title-tag">
-                                    IT Business Consulting
+                                    That smile is a flower.
                                 </span>
                                 <h1 data-animation="fadeInLeft" data-delay="0.6s" class="title">
-                                    Best IT Soluations Provider Agency
+                                    We provide eco-friendly materials
                                 </h1>
-                                <p data-animation="fadeInLeft" data-delay=".9s">
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremda tium totam rem aperiam eaque ipsa quae ab illo inventore veritatis
-                                </p>
                                 <a data-animation="fadeInUp" data-delay="1.1s" class="main-btn rounded-btn icon-right small-size" href="interiorList.do">
                                     Interior List <i class="fal fa-long-arrow-right"></i>
                                 </a>
@@ -34,14 +33,11 @@
                         <div class="banner-text">
                             <div class="banner-content">
                                 <span data-animation="fadeInUp" data-delay="0.3s" class="title-tag">
-                                    IT Business Consulting
+                                    That smile is a flower.
                                 </span>
                                 <h1 data-animation="fadeInLeft" data-delay="0.6s" class="title">
-                                    Best IT Soluations Provider Agency
+                                    Best Designer And DIY Interior.
                                 </h1>
-                                <p data-animation="fadeInLeft" data-delay=".9s">
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremda tium totam rem aperiam eaque ipsa quae ab illo inventore veritatis
-                                </p>
                                 <a data-animation="fadeInUp" data-delay="1.1s" class="main-btn rounded-btn icon-right small-size" href="interiorList.do">
                                     Interior List <i class="fal fa-long-arrow-right"></i>
                                 </a>
@@ -58,14 +54,11 @@
                         <div class="banner-text">
                             <div class="banner-content">
                                 <span data-animation="fadeInUp" data-delay="0.3s" class="title-tag">
-                                    IT Business Consulting
+                                    That smile is a flower.
                                 </span>
                                 <h1 data-animation="fadeInLeft" data-delay="0.6s" class="title">
                                     Best IT Soluations Provider Agency
                                 </h1>
-                                <p data-animation="fadeInLeft" data-delay=".9s">
-                                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremda tium totam rem aperiam eaque ipsa quae ab illo inventore veritatis
-                                </p>
                                 <a data-animation="fadeInUp" data-delay="1.1s" class="main-btn rounded-btn icon-right small-size" href="interiorList.do">
                                     Interior List <i class="fal fa-long-arrow-right"></i>
                                 </a>

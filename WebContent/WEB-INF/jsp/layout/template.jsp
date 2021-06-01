@@ -50,9 +50,21 @@
     
 </head>
 <body>
-	
+
+
 	<tiles:insertAttribute name="menu"></tiles:insertAttribute>
+	<!--====== Preloader Start ======-->
+    <div id="preloader">
+        <div class="loader-cubes">
+            <div class="loader-cube1 loader-cube"></div>
+            <div class="loader-cube2 loader-cube"></div>
+            <div class="loader-cube4 loader-cube"></div>
+            <div class="loader-cube3 loader-cube"></div>
+        </div>
+    </div>
+    <!--====== Preloader End ======-->
 	<tiles:insertAttribute name="body"></tiles:insertAttribute>
 	<tiles:insertAttribute name="foot"></tiles:insertAttribute>
+	
 </body>
 </html>
