@@ -22,7 +22,7 @@ public class UploadImage extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		String path = "C:/tmp";
 		ServletContext sc = this.getServletContext();
-		sc.getRealPath("uploadImage");
+		path = sc.getRealPath("uploadImage");
 
 		MultipartRequest multi = new MultipartRequest(req, //
 				path, //
