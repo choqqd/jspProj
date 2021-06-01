@@ -37,12 +37,14 @@ input {
 </style>
 </head>
 <body>
-	<form>
+<div class="tablebox">
+	<form action ="bulletinUpdate.do" method = "post">
 	<input type="hidden" id="btcode" name="btcode" value="${btcode }">
+	<input type="hidden" id="writer" name="writer" value="${writer }">
 		<table class="table">
 			<tr>
 				<th width="200px">작성자</th>
-				<td>${name }</td>
+				<td>${writer }</td>
 			</tr>
 			<tr>
 				<th>디자이너 이름</th>
@@ -60,5 +62,6 @@ input {
 			</tr>
 		</table>
 	</form>
+</div>
 </body>
 </html>

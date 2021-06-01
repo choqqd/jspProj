@@ -12,10 +12,12 @@ public class BulletinUpdateFrom implements DbCommand {
 		String dsname = request.getParameter("dsname");
 		String content = request.getParameter("content");
 		String btcode = request.getParameter("btcode");
+		String writer = request.getParameter("writer");
 		
 		request.setAttribute("dsname",dsname);
 		request.setAttribute("content",content);
 		request.setAttribute("btcode",btcode);
+		request.setAttribute("writer", writer);
 		return "bulletin/bulletinUpdateForm.tiles";
 	}
 

@@ -57,6 +57,7 @@ h2 {
 		<input type="hidden" id ="dsname" name="dsname" value="${bvo.dsName }">
 		<input type="hidden" id="content" name="content" value="${bvo.btContent }">
 		<input type="hidden" id="btcode" name="btcode" value="${bvo.btCode }">
+		<input type="hidden" id="writer" name="writer" value="${bvo.writer }">
 	</form>
 		<div class="bt-he">
 			<span class="s-title">${bvo.dsName }</span>
