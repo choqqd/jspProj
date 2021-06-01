@@ -95,7 +95,19 @@ public class BulletinServiceImpl extends DAO implements BulletinService{
 
 	@Override
 	public int deleteBulletin(BulletinVO vo) {
-		return 0;
+		sql = "delete from bulletin where bt_Code = ?";
+		int r = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getBtCode());
+			
+			r = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return r;
 	}
 
 	public void close() {

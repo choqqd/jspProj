@@ -9,12 +9,15 @@
 <script>
 function deleteCheck(btcode){
 	if(confirm("정말 삭제하시겠습니까 ?") == true){
-        frm.btcode.valu = btcode
+        frm.btcode.value = btcode
         frm.submit();
     }
     else{
         return ;
     }
+}
+function update(){
+	upfrm.submit();
 }
 </script>
 <style>
@@ -50,16 +53,22 @@ h2 {
 	<form id="frm" action="bulletinDelete.do" method="post">
 		<input type="hidden" id="btcode" name="btcode">
 	</form>
+	<form id="upfrm" action="bulletinUpdateForm.do" method="post">
+		<input type="hidden" id ="dsname" name="dsname" value="${bvo.dsName }">
+		<input type="hidden" id="content" name="content" value="${bvo.btContent }">
+		<input type="hidden" id="btcode" name="btcode" value="${bvo.btCode }">
+	</form>
 		<div class="bt-he">
 			<span class="s-title">${bvo.dsName }</span>
 			<h2>Designing No.${bvo.btCode }</h2>
 			<span>${bvo.writer } </span>
 		</div>
 		<div class="bt-se">
-			<img src="${pageContext.request.contextPath }/bootstrap/img/${bvo.btFileName }">	<p>${bvo.btContent }</p>
+			<p>${bvo.btContent }</p>
 		</div>
 		<c:if test="${name eq bvo.writer}">
 			<button type="button" onclick = "deleteCheck(${bvo.btCode })">삭제하기</button>
+			<button type="button" onclick = "update()">수정하기</button>
 		</c:if>
 	<button type="button" onclick="location.href='designerPage.do'"> 목록보기</button>
 

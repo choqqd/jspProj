@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.jspProj.bulletin.web.BulletinDelete;
 import com.jspProj.bulletin.web.BulletinInsert;
 import com.jspProj.bulletin.web.BulletinInsertForm;
+import com.jspProj.bulletin.web.BulletinUpdateFrom;
 import com.jspProj.bulletin.web.BulletinView;
 import com.jspProj.designer.web.DesignerPage;
 import com.jspProj.designer.web.DesignerinfoPage;
@@ -48,7 +49,8 @@ public class FrontController extends HttpServlet {
 		map.put("/bulletinView.do", new BulletinView()); //후기게시판 상세보기
 		map.put("/bulletinInsertForm.do", new BulletinInsertForm()); //후기작성Form
 		map.put("/bulletinInsert.do", new BulletinInsert());//후기작성
-		map.put("/bulletinDelete.do", new BulletinDelete());
+		map.put("/bulletinDelete.do", new BulletinDelete()); //후기 삭제
+		map.put("/bulletinUpdateForm.do", new BulletinUpdateFrom()); //수정Form
 		
 		
 	// 인테리어 탭
