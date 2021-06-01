@@ -112,7 +112,7 @@
 
 				<div class="de-box1">
 					<h2> 후기 게시판</h2>
-					<button class="inpu" type = "button" onclick="bulletinInsert.do">후기 작성</button>
+					<button class="inpu" type = "button" onclick="bulletinInsertForm.do">후기 작성</button>
 					<c:forEach items="${blist }" var="bvo">
 						<div class="de-infobox" onclick="bulletinView(${bvo.btCode})">
 							<div class="info">
