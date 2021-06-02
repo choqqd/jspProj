@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 
 <html>
@@ -94,6 +94,12 @@ input {
 	float: left;
 	margin-left: 5px;
 }
+
+#adminBtn {
+	
+	margin-top: 20px;
+	width: 100%;
+}
 </style>
 <body onload="init();">
 	<hr>
@@ -142,6 +148,11 @@ input {
 						<button id="buyIt" type="button" class="btn btn-outline-dark">구매하기</button>
 						<button id="buyIt" type="submit" class="btn btn-outline-dark">장바구니</button>
 					</form>
+					<!-- 관리자 아이디 일때 수정, 삭제버튼 추가 -->
+					<c:if test="${id eq 'admin' }">
+						<button id="adminBtn" type="button" class="btn btn-outline-dark" onclick="location.href='updatePage.do'">(관리자)수정하기</button>
+						<button id="adminBtn" type="button" class="btn btn-outline-dark" onclick="location.href='deleteItem.do?itemCode=${select.itemCode}'">(관리자)삭제하기</button>
+					</c:if>
 				</div>
 			</div>
 		</div>

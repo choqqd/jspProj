@@ -7,43 +7,31 @@
 <title>Insert title here</title>
 <script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 <script>
-	$(document)
-			.ready(
-					function() {
-						CKEDITOR
-								.replace(
-										'req',
-										{
-											filebrowserUploadUrl : '${pageContext.request.contextPath }/uploadImage',
-											height : '500px',
-											width : '1200px'
-										})
-					});
+$(document).ready(function() {
+			CKEDITOR
+					.replace(
+							'req',
+							{
+								filebrowserUploadUrl : '${pageContext.request.contextPath }/uploadImage',
+								height : '500px',
+								width : '1200px'
+							})
+});
 </script>
 <style>
-.tablebox {
-	margin: auto;
+#updateItem {
 	width: 80%;
-	min-height: 400px;
+	margin: 50px auto;
 }
 
-input {
-	width: 250px;
-	height: 30px;
-	background-color: #fff;
-	color: #81a3bb;
-	border: 1px solid pink;
-	border-radius: 2px;
-}
-
-#itemdesc {
-	border: 1px solid pink;
+input, textarea {
+	border: 1px solid black;
 }
 </style>
 </head>
 <body>
-	<div class="tablebox">
-		<form action="insertInterior.do" method="post">
+	<div id="updateItem">
+		<form action="updateItem.do" method="post">
 			<table class="table">
 				<tr>
 					<th width="200px">상품이름</th>
@@ -62,7 +50,8 @@ input {
 				</tr>
 				<tr>
 					<td>업로드 파일</td>
-					<td colspan="3"><textarea name="req" id="req"
+					<td colspan="3"><textarea
+							name="req" id="req"
 							onFocus="this.value='';return true;"></textarea></td>
 				</tr>
 				<tr>
@@ -75,5 +64,6 @@ input {
 			</table>
 		</form>
 	</div>
+
 </body>
 </html>

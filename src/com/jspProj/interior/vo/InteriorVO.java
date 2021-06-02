@@ -1,7 +1,7 @@
 package com.jspProj.interior.vo;
 
 public class InteriorVO {
-	private String itemCode;
+	private int itemCode;
 	private String itemName;
 	private int price;
 	private String dsName;
@@ -36,11 +36,11 @@ public class InteriorVO {
 		this.dsImage = dsImage;
 	}
 
-	public String getItemCode() {
+	public int getItemCode() {
 		return itemCode;
 	}
 
-	public void setItemCode(String itemCode) {
+	public void setItemCode(int itemCode) {
 		this.itemCode = itemCode;
 	}
 

@@ -8,21 +8,25 @@ import com.jspProj.interior.service.InteriorService;
 import com.jspProj.interior.serviceImpl.InteriorServiceImpl;
 import com.jspProj.interior.vo.InteriorVO;
 
-public class InteriorSelect implements DbCommand {
+public class InsertInterior implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		String itemCode = request.getParameter("itemCode");
-		String dsName = request.getParameter("dsName");
+		String itemName = request.getParameter("itemName");
+		String price = request.getParameter("price");
+		String dsname = request.getParameter("dsname");
+		String itemdesc = request.getParameter("itemdesc");
+		String filename = request.getParameter("req");
+
 		InteriorVO vo = new InteriorVO();
-		int itemCode1 = Integer.parseInt(itemCode);
-		vo.setItemCode(itemCode1);
-		vo.setDsName(dsName);
+		vo.setItemName(itemName);
+		vo.setPrice(Integer.parseInt(price));
+		vo.setDsName(dsname);
+		vo.setItemDesc(itemdesc);
+		vo.setItemImage(filename);
 		InteriorService service = new InteriorServiceImpl();
-		service.selectInterior(vo);
-		
-		request.setAttribute("select", vo);
-		return "interior/interiorSelect.tiles";
+		service.insertInterior(vo);
+		return "/interiorList.do";
 	}
 
 }

@@ -68,15 +68,14 @@
 <div id="bigWrap">
 	<div class="btnWrap">
 	<c:if test="${id eq 'admin' }">
-		<button class = "btn" onclick="location.href='insertInteriorForm.do'">등록</button>
+		<button class = "btn" onclick="location.href='insertInteriorForm.do'" style="margin-top: 50px; width: 200px;">상품등록</button>
 	</c:if>
 	</div>
 	<c:forEach items="${interior }" var="list">
 		<div id="smallWrap">
 			<div id="itemArea">
 				<img
-					src="${pageContext.request.contextPath }/bootstrap/img/${list.itemImage}"
-					id="itemImg">
+					src="${pageContext.request.contextPath }/bootstrap/img/${list.itemImage}" id="itemImg">
 			</div>
 			<div id="itemTextArea">
 				<ul class="ulTag">
