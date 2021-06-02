@@ -19,6 +19,7 @@ import com.jspProj.bulletin.web.BulletinView;
 import com.jspProj.bulletin.web.InfoPage;
 import com.jspProj.designer.web.DesignerPage;
 import com.jspProj.designer.web.DesignerinfoPage;
+import com.jspProj.interior.web.InsertInteriorForm;
 import com.jspProj.interior.web.InteriorList;
 import com.jspProj.interior.web.InteriorSelect;
 import com.jspProj.interior.web.addCart;
@@ -66,6 +67,7 @@ public class FrontController extends HttpServlet {
 		// 인테리어 탭	 --> 장바구니 버튼 누르고 --> 장바구니로 넘어가기
 		map.put("/addCart1.do", new addCart());
 		map.put("/cartPage.do", new cartPage());
+		map.put("/insertInteriorForm.do", new InsertInteriorForm());
 
 	}
 	

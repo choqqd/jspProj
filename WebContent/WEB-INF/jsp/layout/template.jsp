@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title><tiles:getAsString name="title" /></title>
 	
-<link rel="stylesheet" href="${pageContext.request.contextPath }/bootstrap/css/styles11.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/bootstrap/css/styles.css">
   <!--====== Favicon Icon ======-->
     <link rel="shortcut icon" href="${pageContext.request.contextPath }/bootstrap/img/favicon.ico" type="img/png" />
     <!--====== Bootstrap css ======-->

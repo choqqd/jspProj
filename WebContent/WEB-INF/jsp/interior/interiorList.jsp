@@ -50,11 +50,27 @@
 	margin-top: 120px;
 	width: 50%;
 }
+
+.btn{
+	float: inherit;
+	background: black;
+	font-size: 20px;
+	color: white;
+}
+.btnWrap{
+	margin: 0 auto;
+	width: 100px;
+}
 </style>
 
 <!-- interiorList.do 요청 후 결과 값 -->
 <hr>
 <div id="bigWrap">
+	<div class="btnWrap">
+	<c:if test="${id eq 'admin' }">
+		<button class = "btn" onclick="location.href='insertInteriorForm.do'">등록</button>
+	</c:if>
+	</div>
 	<c:forEach items="${interior }" var="list">
 		<div id="smallWrap">
 			<div id="itemArea">
