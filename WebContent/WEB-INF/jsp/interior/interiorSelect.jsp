@@ -107,7 +107,7 @@ input {
 
 		<div class="Area">
 			<img class="itemImage"
-				src="${pageContext.request.contextPath }/bootstrap/img/${select.itemImage}">
+				src="${pageContext.request.contextPath }/upload/${select.itemImage}">
 			<div class="textArea">
 				<ul class="ulTag">
 					<li style="font-weight: bold;">${select.itemName }</li>

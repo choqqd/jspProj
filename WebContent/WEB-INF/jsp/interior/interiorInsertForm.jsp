@@ -48,7 +48,7 @@ input {
 				</tr>
 				<tr>
 					<td>업로드 파일</td>
-					<td colspan="3"><input type="file" name="filename" id="filename"></td>
+					<td colspan="2"><input type="file" name="filename" id="filename"></td><td></td>
 				</tr>
 				<tr>
 					<td colspan="4">
