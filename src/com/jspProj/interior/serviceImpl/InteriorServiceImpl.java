@@ -10,12 +10,57 @@ import com.jspProj.common.DAO;
 import com.jspProj.interior.service.InteriorService;
 import com.jspProj.interior.vo.InteriorVO;
 
+
 public class InteriorServiceImpl extends DAO implements InteriorService {
 
 	PreparedStatement psmt;
 	ResultSet rs;
 	String sql;
-
+	// Insert 장바구니
+	public void addCart(String id, String itemCode, int amount) {
+		sql = "insert into cart values(?, ?, ?)";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setString(2, itemCode);
+			psmt.setInt(3, amount);
+			int n = psmt.executeUpdate();
+			System.out.println("저장 : " + n);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+	}
+	
+	// 장바구니 리스트
+	public List<InteriorVO> cartList(String id) {
+		sql = "select * from (select member_id, item_code, sum(amount) qty from cart group by member_id, item_code) cart, item p where cart.item_code = p.item_code and cart.member_id = ?";
+		List<InteriorVO> list = new ArrayList<InteriorVO>();
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				InteriorVO vo = new InteriorVO();
+				vo.setItemCode(rs.getString("item_code"));
+				vo.setItemName(rs.getString("item_name"));
+				vo.setItemDesc(rs.getString("item_desc"));
+				vo.setAmount(rs.getInt("qty"));
+				vo.setDsName(rs.getString("ds_name"));
+				vo.setItemImage(rs.getString("item_image"));
+				vo.setMemberId(rs.getString("member_id"));
+				vo.setPrice(rs.getInt("price"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
+	
 	@Override
 	public List<InteriorVO> interiorList() {
 		sql = "select * from item";

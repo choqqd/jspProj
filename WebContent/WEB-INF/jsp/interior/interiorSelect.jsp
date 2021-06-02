@@ -128,9 +128,10 @@ input {
 					</form>
 					  -->
 					<!-- 장바구니로 넘겨주기 -->
-					<form id="frm" action="addCart.do" name="form" method="post">
+					<form id="frm" action="addCart1.do" name="form" method="post">
 						<h5>
-						<input type=hidden id="itemCode" name="itemCode" value="${select.itemCode }"> 
+						<input type=hidden id="id" name="id" value="${id }">
+						<input type=hidden id="itemCode" name="itemCode1" value="${select.itemCode }"> 
 							수량 : <input type=hidden name="sell_price" value="${select.price }"> 
 							<input type="text" name="amount" value="1" size="3" onchange="change();">개
 							<input class="btn btn-outline-dark" id="inputBtn" type="button" value=" + " onclick="add();">
@@ -139,7 +140,7 @@ input {
 						</h5>
 						<br>
 						<button id="buyIt" type="button" class="btn btn-outline-dark">구매하기</button>
-						<button id="buyIt" type="button" class="btn btn-outline-dark">장바구니</button>
+						<button id="buyIt" type="submit" class="btn btn-outline-dark">장바구니</button>
 					</form>
 				</div>
 			</div>
@@ -157,7 +158,9 @@ input {
 			$('span').append(amount + '원');
 		});
 	})*/
-
+	$(function() {
+		console.log($('#itemCode').val());
+	})
 	var sell_price;
 	var amount;
 
@@ -194,5 +197,6 @@ input {
 		}
 		sum.value = parseInt(hm.value) * sell_price;
 	}
+	
 </script>
 </html>

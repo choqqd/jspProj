@@ -20,6 +20,8 @@ import com.jspProj.designer.web.DesignerPage;
 import com.jspProj.designer.web.DesignerinfoPage;
 import com.jspProj.interior.web.InteriorList;
 import com.jspProj.interior.web.InteriorSelect;
+import com.jspProj.interior.web.addCart;
+import com.jspProj.interior.web.cartPage;
 import com.jspProj.member.web.MemberInfo;
 import com.jspProj.member.web.MemberJoin;
 import com.jspProj.member.web.MemberJoinForm;
@@ -58,8 +60,9 @@ public class FrontController extends HttpServlet {
 	// 인테리어 탭
 		map.put("/interiorList.do", new InteriorList());
 		map.put("/interiorSelect.do", new InteriorSelect());
-		// 인테리어 탭	 --> 장바구니로 넘어가기
-		map.put("", null);
+		// 인테리어 탭	 --> 장바구니 버튼 누르고 --> 장바구니로 넘어가기
+		map.put("/addCart1.do", new addCart());
+		map.put("/cartPage.do", new cartPage());
 
 	}
 	

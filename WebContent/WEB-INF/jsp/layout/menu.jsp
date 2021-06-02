@@ -44,7 +44,7 @@
 						<li><a class="nav-link" href="info.do">Brand Story</a></li>
 						<li><a class="nav-link" href="designerPage.do">Designer</a></li>
 						<li><a class="nav-link" href="interiorList.do">interior</a></li>
-						<li><a class="nav-link" href="cart.do">ShopingCart</a></li>
+						<li><a class="nav-link" href="cartPage.do">ShopingCart</a></li>
 					</ul>
 					<a href="#" class="nav-close"><i class="fal fa-times"></i></a>
 				</div>

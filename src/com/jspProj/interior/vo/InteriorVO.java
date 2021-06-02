@@ -8,7 +8,26 @@ public class InteriorVO {
 	private String itemDesc;
 	private String itemImage;
 	private String dsImage;
-	
+
+	private int amount;
+	private String memberId;
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+
 	public String getDsImage() {
 		return dsImage;
 	}
@@ -16,7 +35,7 @@ public class InteriorVO {
 	public void setDsImage(String dsImage) {
 		this.dsImage = dsImage;
 	}
-	
+
 	public String getItemCode() {
 		return itemCode;
 	}
