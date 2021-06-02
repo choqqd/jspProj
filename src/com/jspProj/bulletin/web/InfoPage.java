@@ -9,7 +9,7 @@ public class InfoPage implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		return "info/infoPage.files";
+		return "info/infoPage.tiles";
 	}
 
 }
