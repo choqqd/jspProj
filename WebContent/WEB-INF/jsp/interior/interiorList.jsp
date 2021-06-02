@@ -75,7 +75,11 @@
 		<div id="smallWrap">
 			<div id="itemArea">
 				<img
+<<<<<<< HEAD
 					src="${pageContext.request.contextPath }/uploadImage/${list.itemImage}" id="itemImg">
+=======
+					src="${pageContext.request.contextPath }/upload/${list.itemImage}" id="itemImg">
+>>>>>>> branch 'master' of https://github.com/choqqd/jspProj.git
 			</div>
 			<div id="itemTextArea">
 				<ul class="ulTag">

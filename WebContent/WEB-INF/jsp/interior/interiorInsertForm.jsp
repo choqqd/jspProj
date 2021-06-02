@@ -6,20 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
-<script>
-	$(document)
-			.ready(
-					function() {
-						CKEDITOR
-								.replace(
-										'req',
-										{
-											filebrowserUploadUrl : '${pageContext.request.contextPath }/uploadImage',
-											height : '500px',
-											width : '1200px'
-										})
-					});
-</script>
 <style>
 .tablebox {
 	margin: auto;
@@ -43,7 +29,7 @@ input {
 </head>
 <body>
 	<div class="tablebox">
-		<form action="insertInterior.do" method="post">
+		<form action="insertInterior.do" method="post" enctype="Multipart/form-data">
 			<table class="table">
 				<tr>
 					<th width="200px">상품이름</th>
@@ -62,13 +48,11 @@ input {
 				</tr>
 				<tr>
 					<td>업로드 파일</td>
-					<td colspan="3"><textarea name="req" id="req"
-							onFocus="this.value='';return true;"></textarea></td>
+					<td colspan="2"><input type="file" name="filename" id="filename"></td><td></td>
 				</tr>
 				<tr>
 					<td colspan="4">
-						<button class="btn btn-outline-dark"
-							onclick="location.href='interiorList.do'">목록보기</button>
+						<button class="btn btn-outline-dark" onclick="location.href='interiorList.do'">목록보기</button>
 						<button class="btn btn-outline-dark" type="submit">저장</button>
 					</td>
 				</tr>
