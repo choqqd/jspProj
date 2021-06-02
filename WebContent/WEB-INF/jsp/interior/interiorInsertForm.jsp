@@ -10,7 +10,6 @@
 	margin: auto;
 	width: 80%;
 	min-height: 400px;
-	vertical-align: middle;
 }
 input{
 	width: 250px;
