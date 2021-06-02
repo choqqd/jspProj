@@ -127,17 +127,15 @@ input {
 						수량 : <input type="text" class="i1"> 주문금액 : <span></span>
 					</form>
 					  -->
-					<form id="frm" name="form" method="get">
+					<!-- 장바구니로 넘겨주기 -->
+					<form id="frm" action="addCart.do" name="form" method="post">
 						<h5>
-							수량 : <input type=hidden name="sell_price"
-								value="${select.price }"> <input type="text"
-								name="amount" value="1" size="3" onchange="change();">개
-							<input class="btn btn-outline-dark" id="inputBtn" type="button"
-								value=" + " onclick="add();"> <input id="inputBtn"
-								class="btn btn-outline-dark" type="button" value=" - "
-								onclick="del();">
-						
-						<br> 금액 : <input type="text" name="sum" size="11" readonly>원
+						<input type=hidden id="itemCode" name="itemCode" value="${select.itemCode }"> 
+							수량 : <input type=hidden name="sell_price" value="${select.price }"> 
+							<input type="text" name="amount" value="1" size="3" onchange="change();">개
+							<input class="btn btn-outline-dark" id="inputBtn" type="button" value=" + " onclick="add();">
+							<input id="inputBtn" class="btn btn-outline-dark" type="button" value=" - " onclick="del();">
+							<br> 금액 : <input type="text" name="sum" size="11" readonly>원
 						</h5>
 						<br>
 						<button id="buyIt" type="button" class="btn btn-outline-dark">구매하기</button>

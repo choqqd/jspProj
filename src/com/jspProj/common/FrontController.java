@@ -58,6 +58,9 @@ public class FrontController extends HttpServlet {
 	// 인테리어 탭
 		map.put("/interiorList.do", new InteriorList());
 		map.put("/interiorSelect.do", new InteriorSelect());
+		// 인테리어 탭	 --> 장바구니로 넘어가기
+		map.put("", null);
+
 	}
 	
 	@Override

@@ -50,6 +50,7 @@ public class InteriorServiceImpl extends DAO implements InteriorService {
 			psmt.setString(2, vo.getDsName());
 			rs = psmt.executeQuery();
 			if (rs.next()) {
+				vo.setItemCode(rs.getString("item_code"));
 				vo.setItemName(rs.getString("item_name"));
 				vo.setItemDesc(rs.getString("item_desc"));
 				vo.setItemImage(rs.getString("item_image"));
