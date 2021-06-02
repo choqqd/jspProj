@@ -1,6 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<style>
+.bo-na{
+	clear:both;
+	margin: 40px auto;
+	width: 1500px;
 	
+}
+.bo-na-se{
+	display: inline-block;
+	margin-left: 60px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: center;
+	width: 20%;
+	height: 300px;
+	background: #F7F7F7;
+	font-size: 13px;	
+}
+.se-img
+{
+	width: 100px;
+	height: 100px;
+	margin-top: 50px;
+	margin-bottom: 30px;
+	 
+}
+</style>	
 
 
     <!--====== Banner Slider Start ======-->
@@ -70,6 +96,37 @@
         </div>
     </section>
     <!--====== Banner Slider End ======-->
+    
+    <div class="bo-na">
+        	<div class = "bo-na-se">
+        		<a class="nav-link" href="info.do">
+        			<div><img class="se-img" src="${pageContext.request.contextPath }/bootstrap/img/icon/icon_story.png" /></div>
+        			<h3>Brand Story</h3>
+        			<span>브랜드 스토리</span>
+        		</a>
+        	</div>
+        	<div class = "bo-na-se">
+        		<a class="nav-link" href="designerPage.do">
+        		<div><img class="se-img" src="${pageContext.request.contextPath }/bootstrap/img/icon/icon_styling.png" /></div>
+        		<h3>Designer</h3>
+        		<span>후기 및 디자이너 소개</span>
+        		</a>
+        	</div>
+        	<div class = "bo-na-se">
+        		<a class="nav-link" href="interiorList.do">
+	        		<div><img class="se-img" src="${pageContext.request.contextPath }/bootstrap/img/icon/icon_shop.png" /></div>
+    	    		<h3>Interior</h3>
+        			<span>인테리어 상품 보러가기</span>
+        		</a>
+        	</div>
+        	<div class = "bo-na-se">
+        		<a class="nav-link" href="cart.do">
+        			<div><img class="se-img" src="${pageContext.request.contextPath }/bootstrap/img/icon/icon_mypage.png" /></div>
+        			<h3>Shoping Cart</h3>
+        			<span>나의 장바구니</span>
+        		</a>
+        	</div>
+        </div>
 
     <!--====== Back to top start ======-->
     <div class="back-to-top">
