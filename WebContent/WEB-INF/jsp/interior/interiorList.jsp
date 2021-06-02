@@ -75,7 +75,7 @@
 		<div id="smallWrap">
 			<div id="itemArea">
 				<img
-					src="${pageContext.request.contextPath }/bootstrap/img/${list.itemImage}" id="itemImg">
+					src="${pageContext.request.contextPath }/upload/${list.itemImage}" id="itemImg">
 			</div>
 			<div id="itemTextArea">
 				<ul class="ulTag">
