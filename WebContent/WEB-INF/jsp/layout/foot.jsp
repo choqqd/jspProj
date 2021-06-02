@@ -17,11 +17,11 @@
                         <h4 class="widget-title">Pages</h4>
                         <div class="footer-list">
                             <ul>
-                                <li><a href="#"><i class="fal fa-angle-right"></i> Home</a></li>
-                                <li><a href="#"><i class="fal fa-angle-right"></i> Brand Story</a></li>
-                                <li><a href="#"><i class="fal fa-angle-right"></i> Designer</a></li>
-                                <li><a href="#"><i class="fal fa-angle-right"></i> Interior</a></li>
-                                <li><a href="#"><i class="fal fa-angle-right"></i> Shoping Cart</a></li>
+                                <li><a href="index.do"><i class="fal fa-angle-right"></i> Home</a></li>
+                                <li><a href="info.do"><i class="fal fa-angle-right"></i> Brand Story</a></li>
+                                <li><a href="designerPage.do"><i class="fal fa-angle-right"></i> Designer</a></li>
+                                <li><a href="interiorList.do"><i class="fal fa-angle-right"></i> Interior</a></li>
+                                <li><a href="cart.do"><i class="fal fa-angle-right"></i> Shoping Cart</a></li>
                             </ul>
                         </div>
                     </div>
