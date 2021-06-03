@@ -79,6 +79,7 @@
 </head>
 <body>
 	<h2>Desiner List Info</h2>
+	<button type="button" onclick="location.href='designerInsertForm.do">디자이너 등록</button>
 	<form id = "frm" action="designerinfoPage.do" method="post">
 		<input type="hidden" id ="DesinerName" name = "DesinerName" >
 	</form>
@@ -101,6 +102,10 @@
 		<c:choose>
 			<c:when test="${!empty rvo }">
 				<div id="showdox" class="de-box1">
+				<c:if test="${id eq 'admin' }">
+					<button type="button" onclick="location.href='designerUploadForm.do">디자이너 수정</button>
+					<button type="button" onclick="location.href='designerDelete.do">디자이너 삭제</button>
+				</c:if>
 					<div class="de-box">
 						<div class="de-box">
 							<img src="${pageContext.request.contextPath }/bootstrap/img/${rvo.dsImage }">

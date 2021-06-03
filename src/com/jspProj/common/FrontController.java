@@ -17,6 +17,7 @@ import com.jspProj.bulletin.web.BulletinUpdate;
 import com.jspProj.bulletin.web.BulletinUpdateFrom;
 import com.jspProj.bulletin.web.BulletinView;
 import com.jspProj.bulletin.web.InfoPage;
+import com.jspProj.designer.web.DesignerInsertForm;
 import com.jspProj.designer.web.DesignerPage;
 import com.jspProj.designer.web.DesignerinfoPage;
 import com.jspProj.interior.web.DeleteCart;
@@ -57,12 +58,15 @@ public class FrontController extends HttpServlet {
 	//디자이너 탭
 		map.put("/designerPage.do", new DesignerPage());
 		map.put("/designerinfoPage.do", new DesignerinfoPage());
+		map.put("/designerInsertForm.do", new DesignerInsertForm());
+		
+	//후기 탭
 		map.put("/bulletinView.do", new BulletinView()); //후기게시판 상세보기
 		map.put("/bulletinInsertForm.do", new BulletinInsertForm()); //후기작성Form
 		map.put("/bulletinInsert.do", new BulletinInsert());//후기작성
 		map.put("/bulletinDelete.do", new BulletinDelete()); //후기 삭제
-		map.put("/bulletinUpdateForm.do", new BulletinUpdateFrom()); //수정Form
-		map.put("/bulletinUpdate.do", new BulletinUpdate()); //업데이트
+		map.put("/bulletinUpdateForm.do", new BulletinUpdateFrom()); //후기수정Form
+		map.put("/bulletinUpdate.do", new BulletinUpdate()); //후기업데이트
 		
 		
 	// 인테리어 탭
