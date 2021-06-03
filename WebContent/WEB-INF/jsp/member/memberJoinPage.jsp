@@ -18,10 +18,23 @@
 		// 속성 탐색 선택자
 		// 입력이 변경되었을때 체크값을 unChecked로 변경
 
+		$('#checkPwd').click(function() {
+			if ($('#memberPwd').val() == $('#pwdCheck').val()) {
+				alert('일치합니다.');
+				$('#name').focus();
+				$('#checkPwd').val('checked');
+			} else {
+				alert('비밀번호가 일치하지 않습니다.');
+				$('#pwd').val('');
+				$('#checkPwd').val('');
+				$('#pwd').focus();
+			}
+		});
+
 		$('#memberId').change(function() {
 			$('#idCheck').val('unChecked');
 		});
-		
+
 		$('#idCheck').click(function() {
 			if ($('#memberId').val() == "") {
 				alert('아이디를 입력해주세요.');
@@ -95,9 +108,11 @@ input {
 	border-bottom: 1px solid pink;
 	margin: 10px 0px;
 }
-#idCheck {
+
+#idCheck, #checkPwd {
 	margin-left: 30px;
 }
+
 #back {
 	margin: 30px auto;
 }
@@ -115,6 +130,14 @@ input {
 			<tr>
 				<th>비밀번호</th>
 				<td><input type="password" name="pwd" id="memberPwd"></td>
+			</tr>
+			<tr>
+				<th>비밀번호 확인</th>
+				<td><input type="password" name="pwdCheck" id="pwdCheck"
+					value="" onFocus="this.value='';return true;"
+					value="${info.memberName }">
+					<button value="unChecked" type="button" id="checkPwd"
+						class="btn btn-outline-dark">비밀번호 확인</button></td>
 			</tr>
 			<tr>
 				<th>이름</th>
@@ -139,7 +162,8 @@ input {
 				<td><textarea id="req" name="req"></textarea></td>
 			</tr>
 		</table>
-		<button type="button" id="back" class="btn btn-outline-dark" onclick="check()">회원가입</button>
+		<button type="button" id="back" class="btn btn-outline-dark"
+			onclick="check()">회원가입</button>
 		<button type="button" id="back" class="btn btn-outline-dark"
 			onclick="location.href = 'memberLogin.do'">돌아가기</button>
 	</form>

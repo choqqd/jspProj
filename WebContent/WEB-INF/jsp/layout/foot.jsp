@@ -6,8 +6,8 @@
 			<div class="col-lg-4 col-md-6 col-md-7">
 				<div class="widget about-widget">
 					<div class="logo">
-						<p style="text-align: center;" class="widget-title">찾아오시는 길</p>
-						<div id="staticMap" style="width:80%;height:350px; margin: auto;"></div>    
+						<h4 style="text-align: center;" class="widget-title">Find a Way</h4>
+						<div id="staticMap" style="width:100%; height:250px; margin: auto;"></div>    
 						
 						<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	4fd0b43d1d585578308976cb3da2aadc"></script>
 						<script>    
@@ -37,6 +37,7 @@
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-6 offset-xl-1">
+			
 				<div class="widget nav-widget">
 					<h4 class="widget-title">Pages</h4>
 					<div class="footer-list">
