@@ -66,8 +66,7 @@ h2 {
 .de-infobox {
 	display: inline-block;
 	border: 1px solid #e1e1e1;
-	margin-right: 50px;
-	margin-top: 20px;
+	margin: 30px 100px 20px 100px;
 }
 
 span {
@@ -81,6 +80,7 @@ span {
 
 #inpu {
 	display: block;
+	margin: 30px auto;
 }
 
 body {
@@ -95,9 +95,11 @@ body {
 #eventBtn {
 	margin: 10px auto;
 }
+
 #wwwrap {
 	background-color: #f6f6f6;
 }
+
 .de-box11 {
 	border-left: 2px solid #e1e1e1;
 	display: flex;
@@ -179,7 +181,7 @@ body {
 				</c:when>
 				<c:otherwise>
 					<div class="de-box1">
-					<h2>전체 게시판</h2>
+						<h2>전체 게시판</h2>
 						<c:forEach items="${main }" var="tlqkf">
 							<div class="de-infobox" onclick="bulletinView(${tlqkf.btCode})">
 								<div class="info">

@@ -43,9 +43,19 @@ h2 {
 }
 
 .bt-se {
+	width: 80%;
 	text-align: center;
 	min-height: 200px;
 	height: auto;
+	border-top: 2px solid #e1e1e1;
+	border-bottom: 2px solid #e1e1e1;
+	margin: 30px auto;
+	padding: 20px;
+}
+
+.btnArea {
+	width: 80%;
+	margin: 20px auto;
 }
 </style>
 </head>
@@ -54,24 +64,32 @@ h2 {
 		<input type="hidden" id="btcode" name="btcode">
 	</form>
 	<form id="upfrm" action="bulletinUpdateForm.do" method="post">
-		<input type="hidden" id ="dsname" name="dsname" value="${bvo.dsName }">
-		<input type="hidden" id="content" name="content" value="${bvo.btContent }">
-		<input type="hidden" id="btcode" name="btcode" value="${bvo.btCode }">
-		<input type="hidden" id="writer" name="writer" value="${bvo.writer }">
+		<input type="hidden" id="dsname" name="dsname" value="${bvo.dsName }">
+		<input type="hidden" id="content" name="content"
+			value="${bvo.btContent }"> <input type="hidden" id="btcode"
+			name="btcode" value="${bvo.btCode }"> <input type="hidden"
+			id="writer" name="writer" value="${bvo.writer }">
 	</form>
-		<div class="bt-he">
-			<span class="s-title">${bvo.dsName }</span>
-			<h2>Designing No.${bvo.btCode }</h2>
-			<span>${bvo.writer } </span>
-		</div>
-		<div class="bt-se">
-			<p>${bvo.btContent }</p>
-		</div>
+	<div class="bt-he">
+		<span class="s-title">${bvo.dsName } 디자이너</span>
+		<h2>Designing No.${bvo.btCode }</h2>
+		<span>${bvo.writer } </span>
+	</div>
+	<div class="bt-se">
+		<p>${bvo.btContent }</p>
+	</div>
+	<div class="btnArea">
 		<c:if test="${name eq bvo.writer}">
-			<button type="button" onclick = "deleteCheck(${bvo.btCode })">삭제하기</button>
-			<button type="button" onclick = "update()">수정하기</button>
+			<button type="button" class="btn btn-outline-dark"
+				onclick="deleteCheck(${bvo.btCode })">삭제하기</button>
+			<button type="button" class="btn btn-outline-dark" onclick="update()">수정하기</button>
 		</c:if>
-	<button type="button" onclick="location.href='designerPage.do'"> 목록보기</button>
+		<button type="button" class="btn btn-outline-dark"
+			onclick="location.href='designerPage.do'">돌아가기</button>
+	</div>
+	<hr>
+
+
 
 </body>
 </html>

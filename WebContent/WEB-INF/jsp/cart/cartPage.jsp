@@ -69,8 +69,9 @@
 					</tr>
 					<c:forEach items="${list }" var="vo">
 						<input type="hidden" name="memberId" value="${vo.memberId }">
+						<input type="hidden" name="memberId" value="${vo.dsName }">
 						<tr>
-							<td>${vo.itemName }</td>
+							<td style="cursor:pointer;" onclick="location.href='interiorSelect.do?itemCode=${vo.itemCode}&dsName=${vo.dsName}'">${vo.itemName }</td>
 							<td>${vo.amount }</td>
 							<td><fmt:formatNumber type="currency" value="${vo.price }"></fmt:formatNumber></td>
 							<td><fmt:formatNumber type="currency" value="2500"></fmt:formatNumber></td>

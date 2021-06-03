@@ -156,7 +156,7 @@ td {
 }
 
 input {
-	width: 30%;
+	width: 40%;
 	height: 50px;
 	background-color: #fff;
 	color: #81a3bb;
@@ -170,7 +170,14 @@ input {
 #idCheck, #checkPwd {
 	margin-left: 30px;
 }
-
+#findBtn {
+	border: 1px solid black;
+	border-radius: 20px;
+	margin-left: 20px; 
+}
+#DetailedAddress {
+	
+}
 #back {
 	margin: 30px auto;
 }
@@ -213,12 +220,13 @@ input {
 				<th>주소</th>
 				<td>
 					<input type="text" id="sample4_postcode" name = "sample4_postcode" placeholder="우편번호">
-   					<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+   					<button type="button" onclick="sample4_execDaumPostcode()" id="findBtn" class="btn btn-outline-dark">우편번호 찾기</button><br>
     				<input type="text" id="sample4_roadAddress" name = "sample4_roadAddress" placeholder="도로명주소">
 				    <input type="text" id="sample4_jibunAddress" name = "sample4_jibunAddress" placeholder="지번주소">
     				<span id="guide" style="color:#999;display:none"></span>
-    				<input type="text" id="sample4_detailAddress" name = "sample4_detailAddress" placeholder="상세주소">
     				<input type="text" id="sample4_extraAddress" name = "sample4_extraAddress" placeholder="참고항목">
+    				<input type="text" id="sample4_detailAddress" name = "sample4_detailAddress" placeholder="상세주소">
+    				
 				</td>
 			</tr>
 			<tr>
