@@ -75,6 +75,9 @@
 	.inpu{
 	display: block;
 	}
+	body{
+	back
+	}
 </style>
 </head>
 <body>
