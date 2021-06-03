@@ -178,6 +178,7 @@ body {
 				</c:when>
 				<c:otherwise>
 					<div class="de-box1">
+					<h2>전체 게시판</h2>
 						<c:forEach items="${main }" var="tlqkf">
 							<div class="de-infobox" onclick="bulletinView(${tlqkf.btCode})">
 								<div class="info">
