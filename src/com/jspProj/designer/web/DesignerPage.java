@@ -19,7 +19,7 @@ public class DesignerPage implements DbCommand {
 		
 		request.setAttribute("list", list);
 		
-		return "desiner/desinerPage.tiles";
+		return "designer/designerPage.tiles";
 	}
 
 }
