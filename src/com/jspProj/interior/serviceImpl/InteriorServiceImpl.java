@@ -187,7 +187,7 @@ public class InteriorServiceImpl extends DAO implements InteriorService {
 
 	@Override
 	public int updateInterior(InteriorVO vo) {
-		// TODO Auto-generated method stub
+		sql = "";
 		return 0;
 	}
 

@@ -5,19 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
-<script>
-$(document).ready(function() {
-			CKEDITOR
-					.replace(
-							'req',
-							{
-								filebrowserUploadUrl : '${pageContext.request.contextPath }/uploadImage',
-								height : '500px',
-								width : '1200px'
-							})
-});
-</script>
 <style>
 #updateItem {
 	width: 80%;

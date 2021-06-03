@@ -27,6 +27,7 @@ import com.jspProj.interior.web.InsertInteriorForm;
 import com.jspProj.interior.web.InteriorList;
 import com.jspProj.interior.web.InteriorSelect;
 import com.jspProj.interior.web.UpdateItem;
+import com.jspProj.interior.web.UpdateItemController;
 import com.jspProj.interior.web.addCart;
 import com.jspProj.interior.web.cartPage;
 import com.jspProj.member.web.MemberInfo;
@@ -80,8 +81,10 @@ public class FrontController extends HttpServlet {
 		map.put("/insertInterior.do",new InsertInterior());
 		// 관리자 삭제
 		map.put("/deleteItem.do", new DeleteItem());
-		// 관리자 없데이트
-		map.put("/updatePage.do", new UpdateItem()); // 업데이트 페이지 이동
+		// 관리자 없데이트 페이지 이동
+		map.put("/updatePage.do", new UpdateItem());
+		// 관리자 업데이트 컨트롤
+		map.put("/updateItem.do", new UpdateItemController());
 		//map.put("/updateItem.do", new UpdateSelectItem()); // 이동 후 삭제
 		// 장바구니 삭제
 		map.put("/deleteCart.do", new DeleteCart());
