@@ -150,7 +150,7 @@ input {
 					</form>
 					<!-- 관리자 아이디 일때 수정, 삭제버튼 추가 -->
 					<c:if test="${id eq 'admin' }">
-						<button id="adminBtn" type="button" class="btn btn-outline-dark" onclick="location.href='updatePage.do'">(관리자)수정하기</button>
+						<button id="adminBtn" type="button" class="btn btn-outline-dark" onclick="location.href='updatePage.do?itemCode=${select.itemCode}'">(관리자)수정하기</button>
 						<button id="adminBtn" type="button" class="btn btn-outline-dark" onclick="location.href='deleteItem.do?itemCode=${select.itemCode}'">(관리자)삭제하기</button>
 					</c:if>
 				</div>

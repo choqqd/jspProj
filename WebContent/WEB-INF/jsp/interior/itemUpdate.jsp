@@ -11,14 +11,26 @@
 	margin: 50px auto;
 }
 
-input, textarea {
-	border: 1px solid black;
+input {
+	width: 50%;
+	height: 50px;
+	background-color: #fff;
+	color: #81a3bb;
+	border: 1px solid pink;
+	border-radius: 2px;
+}
+
+#filename, #itemdesc {
+	width: 100%;
+	border: 1px solid pink;
+	height: 100px;
 }
 </style>
 </head>
 <body>
 	<div id="updateItem">
-		<form action="updateItem.do" method="post">
+		<form action="updateItem.do" method="post" enctype="Multipart/form-data">
+		<input type="hidden" name="itemCode" value="${itemCode }">
 			<table class="table">
 				<tr>
 					<th width="200px">상품이름</th>
@@ -37,9 +49,8 @@ input, textarea {
 				</tr>
 				<tr>
 					<td>업로드 파일</td>
-					<td colspan="3"><textarea
-							name="req" id="req"
-							onFocus="this.value='';return true;"></textarea></td>
+					<td colspan="3"><input type="file" name="filename"
+						id="filename"></td><td></td>
 				</tr>
 				<tr>
 					<td colspan="4">

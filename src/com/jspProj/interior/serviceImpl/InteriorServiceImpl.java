@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.jspProj.common.DAO;
 import com.jspProj.interior.service.InteriorService;
-import com.jspProj.interior.vo.InteriorVO;
+import com.jspProj.interior.vo.InteriorVO;import com.oreilly.servlet.MultipartRequest;
 
 public class InteriorServiceImpl extends DAO implements InteriorService {
 
@@ -187,8 +187,29 @@ public class InteriorServiceImpl extends DAO implements InteriorService {
 
 	@Override
 	public int updateInterior(InteriorVO vo) {
-		sql = "";
-		return 0;
+		sql = "update item set item_name = ?, price = ?, ds_name = ?, item_desc = ?, item_image = ? where item_code = ?";
+		int n = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getItemName());
+			psmt.setInt(2, vo.getPrice());
+			psmt.setString(3, vo.getDsName());
+			psmt.setString(4, vo.getItemDesc());
+			psmt.setString(5, vo.getItemImage());
+			psmt.setInt(6, vo.getItemCode());
+			n = psmt.executeUpdate();
+			if(n != 0) {
+				System.out.println("아이템 업데이트 완료");
+			}else {
+				System.out.println("업데이트 실패 ㅜㅜ");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		
+		return n;
 	}
 
 	@Override

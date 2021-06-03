@@ -11,6 +11,9 @@ public class UpdateItem implements DbCommand {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+		String itemCode = request.getParameter("itemCode");
+		
+		request.setAttribute("itemCode", itemCode);
 		return "interior/itemUpdate.tiles";
 	}
 

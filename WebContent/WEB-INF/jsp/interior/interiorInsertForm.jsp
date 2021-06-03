@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="//cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
 <style>
 .tablebox {
 	margin: auto;
