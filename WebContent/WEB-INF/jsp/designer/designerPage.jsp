@@ -74,8 +74,9 @@ span {
 	display: block;
 }
 
-img {
+.img {
 	width: 220px;
+	height: 200px;
 }
 
 #inpu {
@@ -115,7 +116,7 @@ body {
 				<button type="button" id="insertBtn" class="btn btn-outline-dark"
 					onclick="location.href='designerInsertForm.do'">디자이너 등록</button>
 			</c:if>
-		</span>>
+		</span>
 
 		<form id="frm" action="designerinfoPage.do" method="post">
 			<input type="hidden" id="DesinerName" name="DesinerName">
@@ -126,7 +127,7 @@ body {
 		<div style="width: 80%; margin: 0 auto;">
 			<ul class="ds-ul">
 				<c:forEach items="${list }" var="vo">
-					<li onclick="desite('${vo.dsName }')"><img
+					<li onclick="desite('${vo.dsName }')"><img class="img"
 						src="${pageContext.request.contextPath }/designer/${vo.dsImage }" />
 						<p style="font-weight: bold; margin-top: 20px;">${vo.dsName }</p></li>
 				</c:forEach>
