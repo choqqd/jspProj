@@ -74,8 +74,10 @@
 	}
 </script>
 <style>
-table {
+.table {
+	width: 50%;
 	margin: 20px 0px;
+	vertical-align: middle;
 }
 
 td {
@@ -83,14 +85,27 @@ td {
 }
 
 input {
-	border: 1px solid black;
-	width: 500px;
+	width: 30%;
+	height: 50px;
+	background-color: #fff;
+	color: #81a3bb;
+	padding: 0px;
+	font-size: 16px;
+	border-top: 1px solid pink;
+	border-bottom: 1px solid pink;
+	margin: 10px 0px;
+}
+#idCheck {
+	margin-left: 30px;
+}
+#back {
+	margin: 30px auto;
 }
 </style>
-
+<hr>
 <div id="wrap" align="center">
 	<form id="frm" action="memberJoin.do" method="post">
-		<table>
+		<table class="table">
 			<tr>
 				<th>아이디</th>
 				<td><input type="text" name="id" id="memberId">
@@ -124,10 +139,10 @@ input {
 				<td><textarea id="req" name="req"></textarea></td>
 			</tr>
 		</table>
-		<button type="button" class="btn btn-outline-dark" onclick="check()">회원가입</button>
-		<button type="button" class="btn btn-outline-dark"
+		<button type="button" id="back" class="btn btn-outline-dark" onclick="check()">회원가입</button>
+		<button type="button" id="back" class="btn btn-outline-dark"
 			onclick="location.href = 'memberLogin.do'">돌아가기</button>
 	</form>
 </div>
-<hr>
+
 

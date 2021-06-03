@@ -96,9 +96,14 @@ input {
 }
 
 #adminBtn {
-	
 	margin-top: 20px;
 	width: 100%;
+}
+
+#updateDelete {
+	float: right;
+	width: 30%;
+	display: block;
 }
 </style>
 <body onload="init();">
@@ -109,6 +114,14 @@ input {
 			<img class="itemImage"
 				src="${pageContext.request.contextPath }/upload/${select.itemImage}">
 			<div class="textArea">
+				<div id="updateDelete">
+					<c:if test="${id eq 'admin' }">
+						<button id="adminBtn" type="button" class="btn btn-outline-dark"
+							onclick="location.href='updatePage.do?itemCode=${select.itemCode}'">(관리자)수정하기</button>
+						<button id="adminBtn" type="button" class="btn btn-outline-dark"
+							onclick="location.href='deleteItem.do?itemCode=${select.itemCode}'">(관리자)삭제하기</button>
+					</c:if>
+				</div>
 				<ul class="ulTag">
 					<li style="font-weight: bold;">${select.itemName }</li>
 					<li class="desc">${select.itemDesc }</li>
@@ -134,25 +147,25 @@ input {
 					</form>
 					  -->
 					<!-- 장바구니로 넘겨주기 -->
-					<form id="frm" action="addCart1.do" name="form" method="post">
-						<h5>
-						<input type=hidden id="id" name="id" value="${id }">
-						<input type=hidden id="itemCode" name="itemCode1" value="${select.itemCode }"> 
-							수량 : <input type=hidden name="sell_price" value="${select.price }"> 
-							<input type="text" name="amount" value="1" size="3" onchange="change();">개
-							<input class="btn btn-outline-dark" id="inputBtn" type="button" value=" + " onclick="add();">
-							<input id="inputBtn" class="btn btn-outline-dark" type="button" value=" - " onclick="del();">
-							<br> 금액 : <input type="text" name="sum" size="11" readonly>원
-						</h5>
-						<br>
-						<button id="buyIt" type="button" class="btn btn-outline-dark">구매하기</button>
-						<button id="buyIt" type="submit" class="btn btn-outline-dark">장바구니</button>
-					</form>
+						<form id="frm" action="addCart1.do" name="form" method="post">
+							<h5>
+								<input type=hidden id="id" name="id" value="${id }"> <input
+									type=hidden id="itemCode" name="itemCode1"
+									value="${select.itemCode }"> 수량 : <input type=hidden
+									name="sell_price" value="${select.price }"> <input
+									type="text" name="amount" value="1" size="3"
+									onchange="change();">개 <input
+									class="btn btn-outline-dark" id="inputBtn" type="button"
+									value=" + " onclick="add();"> <input id="inputBtn"
+									class="btn btn-outline-dark" type="button" value=" - "
+									onclick="del();"> <br> 금액 : <input type="text"
+									name="sum" size="11" readonly>원
+							</h5>
+							<br>
+							<button id="buyIt" type="button" class="btn btn-outline-dark">구매하기</button>
+							<button id="buyIt" type="submit" class="btn btn-outline-dark">장바구니</button>
+						</form>
 					<!-- 관리자 아이디 일때 수정, 삭제버튼 추가 -->
-					<c:if test="${id eq 'admin' }">
-						<button id="adminBtn" type="button" class="btn btn-outline-dark" onclick="location.href='updatePage.do?itemCode=${select.itemCode}'">(관리자)수정하기</button>
-						<button id="adminBtn" type="button" class="btn btn-outline-dark" onclick="location.href='deleteItem.do?itemCode=${select.itemCode}'">(관리자)삭제하기</button>
-					</c:if>
 				</div>
 			</div>
 		</div>
@@ -208,6 +221,5 @@ input {
 		}
 		sum.value = parseInt(hm.value) * sell_price;
 	}
-	
 </script>
 </html>

@@ -17,6 +17,32 @@
 	padding: 20px auto;
 }
 </style>
+<!-- F5번 막기 -->
+<script>
+	$(document).keydown(function(e) {
+		key = (e) ? e.keyCode : event.keyCode;
+		var t = document.activeElement;
+		if (key == 8 || key == 116 || key == 17 || key == 82) {
+			if (key == 8) {
+				if (t.tagName != "INPUT") {
+					if (e) {
+						e.preventDefault();
+					} else {
+						event.keyCode = 0;
+						event.returnValue = false;
+					}
+				}
+			} else {
+				if (e) {
+					e.preventDefault();
+				} else {
+					event.keyCode = 0;
+					event.returnValue = false;
+				}
+			}
+		}
+	});
+</script>
 </head>
 <body>
 	<hr>
@@ -32,7 +58,7 @@
 		<form action="deleteCart.do" method="POST">
 			<div style="width: 80%">
 				<table class="table" style="text-align: center;">
-				
+
 					<tr id="title">
 						<th>상품명</th>
 						<th>총수량</th>
@@ -42,7 +68,7 @@
 						<th><button class="btn btn-outline-dark" type="submit">전체삭제</button></th>
 					</tr>
 					<c:forEach items="${list }" var="vo">
-					<input type="hidden" name="memberId" value="${vo.memberId }">
+						<input type="hidden" name="memberId" value="${vo.memberId }">
 						<tr>
 							<td>${vo.itemName }</td>
 							<td>${vo.amount }</td>
