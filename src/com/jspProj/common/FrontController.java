@@ -17,6 +17,7 @@ import com.jspProj.bulletin.web.BulletinUpdate;
 import com.jspProj.bulletin.web.BulletinUpdateFrom;
 import com.jspProj.bulletin.web.BulletinView;
 import com.jspProj.bulletin.web.InfoPage;
+import com.jspProj.designer.web.DesignerInsert;
 import com.jspProj.designer.web.DesignerInsertForm;
 import com.jspProj.designer.web.DesignerPage;
 import com.jspProj.designer.web.DesignerinfoPage;
@@ -57,9 +58,10 @@ public class FrontController extends HttpServlet {
 		map.put("/info.do", new InfoPage());
 		
 	//디자이너 탭
-		map.put("/designerPage.do", new DesignerPage());
-		map.put("/designerinfoPage.do", new DesignerinfoPage());
-		map.put("/designerInsertForm.do", new DesignerInsertForm());
+		map.put("/designerPage.do", new DesignerPage()); // 디자이너 리스트
+		map.put("/designerinfoPage.do", new DesignerinfoPage()); // 디자이너 상세페이지
+		map.put("/designerInsertForm.do", new DesignerInsertForm()); //디자이너 등록폼
+		map.put("/insertDesigner.do", new DesignerInsert()); //디자이너 등록
 		
 	//후기 탭
 		map.put("/bulletinView.do", new BulletinView()); //후기게시판 상세보기

@@ -79,7 +79,9 @@
 </head>
 <body>
 	<h2>Desiner List Info</h2>
-	<button type="button" onclick="location.href='designerInsertForm.do">디자이너 등록</button>
+	<c:if test="${id eq 'admin' }">
+	<button type="button" onclick="location.href='designerInsertForm.do'">디자이너 등록</button>
+	</c:if>
 	<form id = "frm" action="designerinfoPage.do" method="post">
 		<input type="hidden" id ="DesinerName" name = "DesinerName" >
 	</form>
