@@ -42,6 +42,9 @@
 			}
 		}
 	});
+	$(function() {
+		console.log($('#total').val());
+	});
 </script>
 </head>
 <body>
