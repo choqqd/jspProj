@@ -82,14 +82,39 @@ public class DesignerServiceImpl extends DAO implements DesignerService{
 
 	@Override
 	public int updateDesigner(DesignerVO vo) {
-		
-		return 0;
+		sql = "update designer set ds_name =?, ds_info =?, ds_image =?, like_it = 0 where ds_code =?";
+		int r=0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getDsName());
+			psmt.setString(2, vo.getDsInfo());
+			psmt.setString(3, vo.getDsImage());
+			psmt.setInt(4, vo.getDsCode());
+			
+			r = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return r;
 	}
 
 	@Override
 	public int deleteDesigner(DesignerVO vo) {
-
-		return 0;
+		sql = "delete from designer where ds_code = ?";
+		int r = 0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getDsCode());
+			
+			r = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return r;
 	}
 	
 	public void close() {

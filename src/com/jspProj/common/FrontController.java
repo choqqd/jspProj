@@ -17,9 +17,11 @@ import com.jspProj.bulletin.web.BulletinUpdate;
 import com.jspProj.bulletin.web.BulletinUpdateFrom;
 import com.jspProj.bulletin.web.BulletinView;
 import com.jspProj.bulletin.web.InfoPage;
+import com.jspProj.designer.web.DesignerDelete;
 import com.jspProj.designer.web.DesignerInsert;
 import com.jspProj.designer.web.DesignerInsertForm;
 import com.jspProj.designer.web.DesignerPage;
+import com.jspProj.designer.web.DesignerUpdate;
 import com.jspProj.designer.web.DesignerUpdateForm;
 import com.jspProj.designer.web.DesignerinfoPage;
 import com.jspProj.interior.web.DeleteCart;
@@ -64,6 +66,8 @@ public class FrontController extends HttpServlet {
 		map.put("/designerInsertForm.do", new DesignerInsertForm()); //디자이너 등록폼
 		map.put("/insertDesigner.do", new DesignerInsert()); //디자이너 등록
 		map.put("/designerUpdateForm.do", new DesignerUpdateForm()); //디자이너 수정 폼
+		map.put("/updateDesigner.do", new DesignerUpdate()); //디자이너 수정
+		map.put("/designerDelete.do", new DesignerDelete());
 		
 	//후기 탭
 		map.put("/bulletinView.do", new BulletinView()); //후기게시판 상세보기

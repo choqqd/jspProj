@@ -105,8 +105,8 @@
 			<c:when test="${!empty rvo }">
 				<div id="showdox" class="de-box1">
 				<c:if test="${id eq 'admin' }">
-					<button type="button" onclick="location.href='designerUpdateForm.do?dsCode=${rvo.dsCode}'">디자이너 수정</button>
-					<button type="button" onclick="location.href='designerDelete.do'">디자이너 삭제</button>
+					<button type="button" onclick="location.href='designerUpdateForm.do?dsCode=${rvo.dsCode}&dsName=${rvo.dsName }'">디자이너 수정</button>
+					<button type="button" onclick="location.href='designerDelete.do?dsCode=${rvo.dsCode}'">디자이너 삭제</button>
 				</c:if>
 					<div class="de-box">
 						<div class="de-box">
