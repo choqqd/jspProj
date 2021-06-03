@@ -63,8 +63,21 @@ public class DesignerServiceImpl extends DAO implements DesignerService{
 
 	@Override
 	public int insertDesigner(DesignerVO vo) {
-
-		return 0;
+		sql = "insert into designer(ds_code, ds_name, ds_image, ds_info) values(designer_seq.nextval, ?, ?, ?)";
+		int r=0;
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getDsName());
+			psmt.setString(2, vo.getDsImage());
+			psmt.setString(3, vo.getDsInfo());
+			
+			r = psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return r;
 	}
 
 	@Override

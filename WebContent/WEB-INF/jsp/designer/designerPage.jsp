@@ -92,7 +92,7 @@
 		<ul class = "ds-ul">
 		<c:forEach items="${list }" var="vo">
 			<li onclick = "desite('${vo.dsName }')">
-				<img src="${pageContext.request.contextPath }/bootstrap/img/${vo.dsImage }" />
+				<img src="${pageContext.request.contextPath }/designer/${vo.dsImage }" />
 				<p>${vo.dsName }</p>
 			</li>
 		</c:forEach>
@@ -105,12 +105,12 @@
 			<c:when test="${!empty rvo }">
 				<div id="showdox" class="de-box1">
 				<c:if test="${id eq 'admin' }">
-					<button type="button" onclick="location.href='designerUploadForm.do">디자이너 수정</button>
-					<button type="button" onclick="location.href='designerDelete.do">디자이너 삭제</button>
+					<button type="button" onclick="location.href='designerUpdateForm.do?dsCode=${rvo.dsCode}'">디자이너 수정</button>
+					<button type="button" onclick="location.href='designerDelete.do'">디자이너 삭제</button>
 				</c:if>
 					<div class="de-box">
 						<div class="de-box">
-							<img src="${pageContext.request.contextPath }/bootstrap/img/${rvo.dsImage }">
+							<img src="${pageContext.request.contextPath }/designer/${rvo.dsImage }">
 						</div>
 						<div class="de-box">${rvo.dsInfo }</div>
 					</div>
