@@ -12,8 +12,7 @@
 <script type="text/javascript"
 	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
-	function check_module() {
-		var sum = $(this).parent().prev().children().val();
+	function check_module(sum) {
 		var IMP = window.IMP; // 생략가능
 		IMP.init('imp80072882'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
 
@@ -22,7 +21,7 @@
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(), //상품코드(카트번호)
 			name : '주문명:결제테스트', //주문번호
-			amount : $('#buyIt').parent().prev().children().val(), //금액
+			amount : sum, //금액
 			buyer_email : 'iamport@siot.do', //이메일
 			buyer_name : '구매자이름', //구매자이름
 			buyer_tel : '010-1234-5678', //구매자 전화번호
@@ -44,13 +43,7 @@
 			alert(msg);
 		});
 	};
-	$(function() {
-		console.log($(this).parent().prev().children().val());
-		let btn = $('<button />').html("구매").attr('class','btn btn-outline-dark' , 'id', 'buyIt', 'type', 'button');
-		btn.click(check_module);
-		$('#btnDD').append(btn);
-		console.log($('#buyIt').parent())
-	});
+
 </script>
 
 <style>
@@ -128,7 +121,7 @@
 									value="${vo.amount * vo.price + 2500}"></fmt:formatNumber></td>
 							<td id="btnDD">
 								<button id="buyIt" type="button" class="btn btn-outline-dark"
-									onclick="check_module()" >구매</button>
+									onclick="check_module(${vo.amount * vo.price})" >구매</button>
 								<button class="btn btn-outline-dark" type="button"
 									onclick="location.href='deleteCart.do?itemCode=${vo.itemCode}&memberId=${vo.memberId }'">비우기
 								</button>
