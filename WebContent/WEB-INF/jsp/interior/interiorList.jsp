@@ -6,7 +6,6 @@
 #bigWrap {
 	width: 100%;
 	height: auto;
-	background-color: #f6f6f6;
 }
 
 #smallWrap {
@@ -14,7 +13,7 @@
 	height: 500px;
 	border-radius: 30px;
 	margin: 50px auto;
-	background-color: white;
+	border: 1px solid #e1e1e1;
 }
 
 #itemImg {
