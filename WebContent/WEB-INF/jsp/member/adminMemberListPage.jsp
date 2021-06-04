@@ -25,6 +25,9 @@
 	border-right: 1px solid #dee2e6;
 	vertical-align: middle;
 }
+span{
+display:inline;
+}
 </style>
 </head>
 <body>

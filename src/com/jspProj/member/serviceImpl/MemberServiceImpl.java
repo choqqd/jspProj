@@ -67,11 +67,11 @@ public class MemberServiceImpl extends DAO implements MemberService {
 	public List<MemberVO> noticeListPaging(int page){
 		String sql = "select b.*\r\n"//
 				+ "from(select rownum m, a.*\r\n"//
-				+ "      from (select * from member n order by n.member_id)a) b\r\n"//
+				+ "      from (select * from member n where n.member_id not like '%admin%' order by n.member_id)a) b\r\n"//
 				+ "where b.m between ? and ?";//
 		List<MemberVO> list = new ArrayList<MemberVO>();
 		int firstCnt =0, lastCnt = 0;
-		firstCnt = (page-1)*10 +1; // 1
+		firstCnt = (page-1)*5 +1; // 1
 		lastCnt = (page * 5); //5
 		
 		try {

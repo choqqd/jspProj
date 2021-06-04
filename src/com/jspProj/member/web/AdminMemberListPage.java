@@ -21,15 +21,15 @@ public class AdminMemberListPage implements DbCommand {
 		
 		// 멤버 리스트
 		MemberServiceImpl service = new MemberServiceImpl();
-		List<MemberVO> list = service.selectMemberList();
+		List<MemberVO> total = service.selectMemberList();
 		
 		// 페이징
 		service = new MemberServiceImpl();
-		List<MemberVO>total = service.noticeListPaging(pageCnt);
+		List<MemberVO> list = service.noticeListPaging(pageCnt);
 		
 		Paging paging = new Paging();
         paging.setPageNo(pageCnt);
-        paging.setPageSize(10);
+        paging.setPageSize(5);
         paging.setTotalCount(total.size());
 		
 		request.setAttribute("memberList", list);
