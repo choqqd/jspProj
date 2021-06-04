@@ -50,14 +50,24 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 	//요청 페이지 - > 실행컨트롤러
-		map.put("/index.do", new indexPage()); //메인화면
+		
+		//메인화면 호출
+		map.put("/index.do", new indexPage()); 
+		// 로그인 페이지 호출
 		map.put("/memberLogin.do", new MemberLogin());
+		// 로그인 처리 컨트롤러
 		map.put("/memberLoginForm.do", new MemberLoginForm());
+		// 회원가입 페이지 호출
 		map.put("/memberJoinForm.do", new MemberJoinForm());
+		// 회원가입 처리 후 메인페이지 호출
 		map.put("/memberJoin.do", new MemberJoin());
+		// 로그아웃 처리 컨트롤러
 		map.put("/memberLogOut.do", new MemberLogOut());
+		// Member_Id 값 읽고 그 id 에 해당하는 마이페이지 처리 컨트롤러
 		map.put("/memberInfo.do", new MemberInfo());
+		// Get방식 일때 회원정보 Delete Post 방식이면 회원정보 Update 처리 컨트롤러
 		map.put("/memberUpdate.do", new MemberUpdate());
+		// 마이페이지 호출
 		map.put("/info.do", new InfoPage());
 		
 	// 관리자 메뉴 컨트롤러
@@ -94,9 +104,8 @@ public class FrontController extends HttpServlet {
 		map.put("/deleteItem.do", new DeleteItem());
 		// 관리자 없데이트 페이지 이동
 		map.put("/updatePage.do", new UpdateItem());
-		// 관리자 업데이트 컨트롤
+		// 관리자 상품 업데이트 컨트롤
 		map.put("/updateItem.do", new UpdateItemController());
-		//map.put("/updateItem.do", new UpdateSelectItem()); // 이동 후 삭제
 		// 장바구니 삭제
 		map.put("/deleteCart.do", new DeleteCart());
 
