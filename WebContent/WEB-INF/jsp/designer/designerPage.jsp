@@ -46,7 +46,6 @@ h2 {
 	padding: 20px 100px;
 	box-sizing: border-box;
 	border-radius: 8px;
-	background-color: #fff;
 	color: #8c8c8c;
 }
 
@@ -54,7 +53,6 @@ h2 {
 	width: 90%;
 	padding: 55px 76px;
 	border: 1px solid #e1e1e1;
-	background-color: #fff;
 	box-sizing: border-box;
 	border-radius: 8px;
 	color: #8c8c8c;
@@ -83,9 +81,6 @@ span {
 	margin: 30px auto;
 }
 
-body {
-	
-}
 
 #insertBtn {
 	float: right;
@@ -96,9 +91,7 @@ body {
 	margin: 10px auto;
 }
 
-#wwwrap {
-	background-color: #f6f6f6;
-}
+
 
 .de-box11 {
 	border-left: 2px solid #e1e1e1;

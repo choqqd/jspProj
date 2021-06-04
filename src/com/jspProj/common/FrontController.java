@@ -50,7 +50,7 @@ public class FrontController extends HttpServlet {
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 	//요청 페이지 - > 실행컨트롤러
-		map.put("/index.do", new indexPage());
+		map.put("/index.do", new indexPage()); //메인화면
 		map.put("/memberLogin.do", new MemberLogin());
 		map.put("/memberLoginForm.do", new MemberLoginForm());
 		map.put("/memberJoinForm.do", new MemberJoinForm());
