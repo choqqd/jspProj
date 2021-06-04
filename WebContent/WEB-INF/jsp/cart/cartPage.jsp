@@ -130,6 +130,7 @@
 					</c:forEach>
 				</table>
 				<div>
+					
 					<button class="btn btn-outline-dark" type="button"
 						onclick="location.href='interiorList.do'">다시 둘러보기</button>
 					<button class="btn btn-outline-dark" type="submit"
