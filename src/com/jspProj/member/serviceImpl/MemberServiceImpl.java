@@ -3,6 +3,7 @@ package com.jspProj.member.serviceImpl;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.jspProj.common.DAO;
@@ -61,11 +62,67 @@ public class MemberServiceImpl extends DAO implements MemberService {
 		}
 		return mvo;
 	}
-
+	
+	// 페이징
+	public List<MemberVO> noticeListPaging(int page){
+		String sql = "select b.*\r\n"//
+				+ "from(select rownum m, a.*\r\n"//
+				+ "      from (select * from member n order by n.member_id)a) b\r\n"//
+				+ "where b.m between ? and ?";//
+		List<MemberVO> list = new ArrayList<MemberVO>();
+		int firstCnt =0, lastCnt = 0;
+		firstCnt = (page-1)*10 +1; // 1
+		lastCnt = (page * 5); //5
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, firstCnt);
+			psmt.setInt(2, lastCnt);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				MemberVO vo = new MemberVO();
+				vo.setMemberId(rs.getString("member_id"));
+				vo.setMemberPwd(rs.getString("member_pwd"));
+				vo.setMemberName(rs.getString("member_name"));
+				vo.setMemberMail(rs.getString("member_mail"));
+				vo.setMemberTel(rs.getString("member_tel"));
+				vo.setMemberAddr(rs.getString("member_addr"));
+				vo.setMemberReq(rs.getString("member_req"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			close();
+		}
+		return list;
+	}
+	
+	// 어드민 멤버 리스트
 	@Override
 	public List<MemberVO> selectMemberList() {
-		// TODO Auto-generated method stub
-		return null;
+		sql="select * from member where member_id not like '%admin%' order by 3";
+		List<MemberVO> list = new ArrayList<MemberVO>();
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				MemberVO vo = new MemberVO();
+				vo.setMemberId(rs.getString("member_id"));
+				vo.setMemberPwd(rs.getString("member_pwd"));
+				vo.setMemberName(rs.getString("member_name"));
+				vo.setMemberMail(rs.getString("member_mail"));
+				vo.setMemberTel(rs.getString("member_tel"));
+				vo.setMemberAddr(rs.getString("member_addr"));
+				vo.setMemberReq(rs.getString("member_req"));
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
 	}
 
 	@Override

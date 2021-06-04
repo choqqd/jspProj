@@ -34,6 +34,7 @@ import com.jspProj.interior.web.UpdateItem;
 import com.jspProj.interior.web.UpdateItemController;
 import com.jspProj.interior.web.addCart;
 import com.jspProj.interior.web.cartPage;
+import com.jspProj.member.web.AdminMemberListPage;
 import com.jspProj.member.web.MemberInfo;
 import com.jspProj.member.web.MemberJoin;
 import com.jspProj.member.web.MemberJoinForm;
@@ -57,8 +58,10 @@ public class FrontController extends HttpServlet {
 		map.put("/memberLogOut.do", new MemberLogOut());
 		map.put("/memberInfo.do", new MemberInfo());
 		map.put("/memberUpdate.do", new MemberUpdate());
-		
 		map.put("/info.do", new InfoPage());
+		
+	// 관리자 메뉴 컨트롤러
+		map.put("/MemberListPage.do", new AdminMemberListPage()); // 회원리스트 페이지 호출
 		
 	//디자이너 탭
 		map.put("/designerPage.do", new DesignerPage()); // 디자이너 리스트

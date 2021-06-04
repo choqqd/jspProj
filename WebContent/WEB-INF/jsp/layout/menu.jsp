@@ -11,7 +11,7 @@
 						<ul>
 							<c:choose>
 								<c:when test="${!empty id }">
-									<li>${name }님 환영합니다.</li>
+									<li>${name }님환영합니다.</li>
 									<li><a href="memberLogOut.do">로그아웃</a></li>
 									<li><a href="memberInfo.do?id=${id }">마이페이지</a></li>
 								</c:when>
@@ -44,7 +44,14 @@
 						<li><a class="nav-link" href="info.do">Brand Story</a></li>
 						<li><a class="nav-link" href="designerPage.do">Designer</a></li>
 						<li><a class="nav-link" href="interiorList.do">interior</a></li>
-						<li><a class="nav-link" href="cartPage.do">ShopingCart</a></li>
+						<c:choose>
+							<c:when test="${id eq 'admin'}">
+								<li><a class="nav-link" href="MemberListPage.do">MemberList</a></li>
+							</c:when>
+							<c:otherwise>
+								<li><a class="nav-link" href="cartPage.do">ShopingCart</a></li>
+							</c:otherwise>
+						</c:choose>
 					</ul>
 					<a href="#" class="nav-close"><i class="fal fa-times"></i></a>
 				</div>
