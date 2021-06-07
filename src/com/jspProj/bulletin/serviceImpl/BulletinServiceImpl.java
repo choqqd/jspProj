@@ -17,7 +17,7 @@ public class BulletinServiceImpl extends DAO implements BulletinService{
 	
 
 	public List<BulletinVO> mainBulletin() {
-		sql = "select * from bulletin";
+		sql = "select * from bulletin order by bt_code desc";
 		List<BulletinVO> list = new ArrayList<>();
 		BulletinVO vo = null;
 		try {
@@ -42,7 +42,7 @@ public class BulletinServiceImpl extends DAO implements BulletinService{
 	
 	@Override
 	public List<BulletinVO> bulletinSelectList(String name) {
-		sql = "select * from bulletin where ds_name =?";
+		sql = "select * from bulletin where ds_name =? order by bt_code desc";
 		List<BulletinVO> list = new ArrayList<>();
 		BulletinVO vo = null;
 		try {
