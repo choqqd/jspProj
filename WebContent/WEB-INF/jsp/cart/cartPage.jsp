@@ -126,14 +126,10 @@ $(document).ready(function() {
 							<td>${vo.amount }</td>
 							<td><fmt:formatNumber type="currency" value="${vo.price }"></fmt:formatNumber></td>
 							<td><input type="hidden" id="sum"
-<<<<<<< HEAD
-								value="${vo.amount * vo.price + 2500}"> <fmt:formatNumber
-									type="currency" value="${vo.amount * vo.price + 2500}"></fmt:formatNumber></td>
-=======
-								value="${vo.amount * vo.price}">
+								value="${vo.amount * vo.price}"> <fmt:formatNumber
+									type="currency" value="${vo.amount * vo.price}"></fmt:formatNumber></td>
 							<fmt:formatNumber type="currency"
-									value="${vo.amount * vo.price}"></fmt:formatNumber></td>
->>>>>>> branch 'master' of https://github.com/choqqd/jspProj.git
+									value="${vo.amount * vo.price}"></fmt:formatNumber>
 							<td id="btnDD">
 								<button id="buyIt" type="button" class="btn btn-outline-dark"
 									onclick="check_module(${vo.amount * vo.price})">구매</button>
