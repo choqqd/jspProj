@@ -135,7 +135,7 @@ input {
 					<tr class="trTag">
 						<th>담당디자이너</th>
 						<td>${select.dsName }디자이너<img class="dsImg"
-							src="${pageContext.request.contextPath }/bootstrap/img/${select.dsImage}">
+							src="${pageContext.request.contextPath }/designer/${select.dsImage}">
 						</td>
 					</tr>
 				</table>
