@@ -43,7 +43,6 @@
 			alert(msg);
 		});
 	};
-
 </script>
 
 <style>
@@ -58,6 +57,16 @@
 </style>
 <!-- F5번 막기 -->
 <script>
+$(document).ready(function() {
+	$('#delBtn').click(function() {
+		var result = confirm('정말 비우시겠습니까?');
+		if (result) { //yes
+			return true;
+		} else { //no
+			return false;
+		}
+	});
+	
 	$(document).keydown(function(e) {
 		key = (e) ? e.keyCode : event.keyCode;
 		var t = document.activeElement;
@@ -81,6 +90,9 @@
 			}
 		}
 	});
+});
+
+
 </script>
 </head>
 <body>
@@ -116,13 +128,12 @@
 							<td><fmt:formatNumber type="currency" value="${vo.price }"></fmt:formatNumber></td>
 							<td><fmt:formatNumber type="currency" value="2500"></fmt:formatNumber></td>
 							<td><input type="hidden" id="sum"
-								value="${vo.amount * vo.price + 2500}">
-							<fmt:formatNumber type="currency"
-									value="${vo.amount * vo.price + 2500}"></fmt:formatNumber></td>
+								value="${vo.amount * vo.price + 2500}"> <fmt:formatNumber
+									type="currency" value="${vo.amount * vo.price + 2500}"></fmt:formatNumber></td>
 							<td id="btnDD">
 								<button id="buyIt" type="button" class="btn btn-outline-dark"
-									onclick="check_module(${vo.amount * vo.price})" >구매</button>
-								<button class="btn btn-outline-dark" type="button"
+									onclick="check_module(${vo.amount * vo.price})">구매</button>
+								<button id="delBtn" class="btn btn-outline-dark" type="button"
 									onclick="location.href='deleteCart.do?itemCode=${vo.itemCode}&memberId=${vo.memberId }'">비우기
 								</button>
 							</td>
@@ -130,10 +141,10 @@
 					</c:forEach>
 				</table>
 				<div>
-					
+
 					<button class="btn btn-outline-dark" type="button"
 						onclick="location.href='interiorList.do'">다시 둘러보기</button>
-					<button class="btn btn-outline-dark" type="submit"
+					<button class="btn btn-outline-dark" type="submit" id="delBtn"
 						style="float: right;">전체비우기</button>
 				</div>
 			</div>

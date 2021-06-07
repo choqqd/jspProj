@@ -47,9 +47,8 @@ public class MemberUpdate implements DbCommand {
 			vo.setMemberId(id);
 			n = service.deleteMember(vo);
 			if (n != 0) {
-				path = "/memberLogin.do";
+				path = "/MemberListPage.do";
 				System.out.println("삭제 완료");
-				session.invalidate();
 			} else {
 				path = "/index.do";
 			}

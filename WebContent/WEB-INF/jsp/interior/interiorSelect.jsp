@@ -95,7 +95,7 @@ input {
 	margin-left: 5px;
 }
 
-#adminBtn {
+#adminBtn, #delBtn {
 	margin-top: 20px;
 	width: 100%;
 }
@@ -118,7 +118,7 @@ input {
 					<c:if test="${id eq 'admin' }">
 						<button id="adminBtn" type="button" class="btn btn-outline-dark"
 							onclick="location.href='updatePage.do?itemCode=${select.itemCode}'">(관리자)수정하기</button>
-						<button id="adminBtn" type="button" class="btn btn-outline-dark"
+						<button id="delBtn" type="button" class="btn btn-outline-dark"
 							onclick="location.href='deleteItem.do?itemCode=${select.itemCode}'">(관리자)삭제하기</button>
 					</c:if>
 				</div>
@@ -152,17 +152,18 @@ input {
 							<input type=hidden id="id" name="id" value="${id }"> <input
 								type=hidden id="itemCode" name="itemCode1"
 								value="${select.itemCode }"> 수량 : <input type=hidden
-								name="sell_price" value="${select.price }"> <input id="amount"
-								type="text" name="amount" value="1" size="3"
+								name="sell_price" value="${select.price }"> <input
+								id="amount" type="text" name="amount" value="1" size="3"
 								onchange="change();">개 <input
 								class="btn btn-outline-dark" id="inputBtn" type="button"
 								value=" + " onclick="add();"> <input id="inputBtn"
 								class="btn btn-outline-dark" type="button" value=" - "
-								onclick="del();"> <br> 금액 : <input type="text" id="sum"
-								name="sum" size="11" readonly>원
+								onclick="del();"> <br> 금액 : <input type="text"
+								id="sum" name="sum" size="11" readonly>원
 						</h5>
 						<br>
-						<button id="buyIt" type="button" class="btn btn-outline-dark" onclick="check_module()">구매하기</button>
+						<button id="buyIt" type="button" class="btn btn-outline-dark"
+							onclick="check_module()">구매하기</button>
 						<button id="buyIt" type="submit" class="btn btn-outline-dark">장바구니</button>
 					</form>
 					<!-- 관리자 아이디 일때 수정, 삭제버튼 추가 -->
@@ -184,43 +185,51 @@ input {
 	})*/
 	$(function() {
 		console.log($('#itemCode').val());
-	})
-	var sell_price;
-	var amount;
+		$('#delBtn').click(function() {
+			var result = confirm('정말 삭제하시겠습니까?');
+			if (result) { //yes
+				return true;
+			} else { //no
+				return false;
+			}
+		})
+	});
+		var sell_price;
+		var amount;
 
-	function init() {
-		sell_price = document.form.sell_price.value;
-		amount = document.form.amount.value;
-		document.form.sum.value = sell_price;
-		change();
-	}
+		function init() {
+			sell_price = document.form.sell_price.value;
+			amount = document.form.amount.value;
+			document.form.sum.value = sell_price;
+			change();
+		}
 
-	function add() {
-		hm = document.form.amount;
-		sum = document.form.sum;
-		hm.value++;
+		function add() {
+			hm = document.form.amount;
+			sum = document.form.sum;
+			hm.value++;
 
-		sum.value = parseInt(hm.value) * sell_price;
-	}
-
-	function del() {
-		hm = document.form.amount;
-		sum = document.form.sum;
-		if (hm.value > 1) {
-			hm.value--;
 			sum.value = parseInt(hm.value) * sell_price;
 		}
-	}
 
-	function change() {
-		hm = document.form.amount;
-		sum = document.form.sum;
-
-		if (hm.value < 0) {
-			hm.value = 0;
+		function del() {
+			hm = document.form.amount;
+			sum = document.form.sum;
+			if (hm.value > 1) {
+				hm.value--;
+				sum.value = parseInt(hm.value) * sell_price;
+			}
 		}
-		sum.value = parseInt(hm.value) * sell_price;
-	}
+
+		function change() {
+			hm = document.form.amount;
+			sum = document.form.sum;
+
+			if (hm.value < 0) {
+				hm.value = 0;
+			}
+			sum.value = parseInt(hm.value) * sell_price;
+		}
 </script>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -230,7 +239,7 @@ input {
 	function check_module() {
 		var IMP = window.IMP; // 생략가능
 		IMP.init('imp80072882'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
-		
+
 		IMP.request_pay({
 			pg : 'inicis', // version 1.1.0부터 지원.
 			pay_method : 'card',
